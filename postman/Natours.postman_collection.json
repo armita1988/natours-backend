@@ -1,0 +1,1216 @@
+{
+  "info": {
+    "_postman_id": "81b3c0a3-7acd-4434-8225-380646299fd7",
+    "name": "Natours",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5929676"
+  },
+  "item": [
+    {
+      "name": "Tours",
+      "item": [
+        {
+          "name": "Get All Tours",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours?sort=price",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours"
+              ],
+              "query": [
+                {
+                  "key": "price[lte]",
+                  "value": "2500",
+                  "disabled": true
+                },
+                {
+                  "key": "duration[lte]",
+                  "value": "12",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "name,duration,price,summary,",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "price"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get A Tour",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/5c88fa8cf4afda39709c295d",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "5c88fa8cf4afda39709c295d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update A Tour",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"difficulty\": \"difficult\",\r\n    \"price\": 999,\r\n    \"priceDiscount\": 9,\r\n    \"name\": \"The Armita Queen\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/698290c5ebabcb8f5134a0e5",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "698290c5ebabcb8f5134a0e5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete A Tour",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/68defe172ec4d4a9b1612ed2",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "68defe172ec4d4a9b1612ed2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Tour",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"The Sea Explorer 2\",\r\n    \"duration\": 125,\r\n    \"maxGroupSize\": 5,\r\n    \"difficulty\": \"easy\",\r\n    \"price\": 4736,\r\n    \"summary\": \"create a new test tour\",\r\n    \"imageCover\": \"tour-1-cover.jpg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Top Tours",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/top-5-cheap",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "top-5-cheap"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Tours Statistics",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/tours-stats",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "tours-stats"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Monthly Plan",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/monthly-plan/2021",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "monthly-plan",
+                "2021"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Sign Up",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Jonasn\",\r\n    \"email\": \"admin@natours2.io\",\r\n    \"password\": \"armita1234\",\r\n    \"passwordConfirm\": \"armita1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/signup",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@natours.io\",\r\n    \"password\": \"test1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/login",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"armita.hajimani@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/forgotPassword",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "forgotPassword"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"qwersdf4\",\r\n    \"passwordConfirm\": \"qwersdf4\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/resetPassword/a984f14853887bad60786f07c071104480ebf5fb93a2875e1d7401c89c7c7fbf",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "resetPassword",
+                "a984f14853887bad60786f07c071104480ebf5fb93a2875e1d7401c89c7c7fbf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Current User Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"qwersdf99\",\r\n    \"passwordConfirm\": \"qwersdf99\",\r\n    \"passwordCurrent\": \"qwersdf12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/updateMyPassword",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "updateMyPassword"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Create Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// \r\n\r\n{\r\n    \r\n    \"review\": \"Cras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt\",\r\n    \"rating\": 2,\r\n    \"user\": \"7c8a1dfa2f8fb814b56fa189\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/reviews/",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "reviews",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Review",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/reviews/5c8a382d14eb5c17645c9116",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "reviews",
+                "5c8a382d14eb5c17645c9116"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"_id\": \"5c8a34ed14eb5c17645c9108\",\r\n    \"review\": \"Cras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a355b14eb5c17645c9109\",\r\n    \"review\": \"Tempus curabitur faucibus auctor bibendum duis gravida tincidunt litora himenaeos facilisis vivamus vehicula potenti semper fusce suspendisse sagittis!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a359914eb5c17645c910a\",\r\n    \"review\": \"Convallis turpis porttitor sapien ad urna efficitur dui vivamus in praesent nulla hac non potenti!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a35b614eb5c17645c910b\",\r\n    \"review\": \"Habitasse scelerisque class quam primis convallis integer eros congue nulla proin nam faucibus parturient.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a364c14eb5c17645c910c\",\r\n    \"review\": \"Cras consequat fames faucibus ac aliquam dolor a euismod porttitor rhoncus venenatis himenaeos montes tristique pretium libero nisi!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a368c14eb5c17645c910d\",\r\n    \"review\": \"Laoreet justo volutpat per etiam donec at augue penatibus eu facilisis lorem phasellus ipsum tristique urna quam platea.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a36a014eb5c17645c910e\",\r\n    \"review\": \"Senectus lectus eleifend ex lobortis cras nam cursus accumsan tellus lacus faucibus himenaeos posuere!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a36b714eb5c17645c910f\",\r\n    \"review\": \"Pulvinar taciti etiam aenean lacinia natoque interdum fringilla suspendisse nam sapien urna!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a379a14eb5c17645c9110\",\r\n    \"review\": \"Pretium vel inceptos fringilla sit dui fusce varius gravida platea morbi semper erat elit porttitor potenti!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37b114eb5c17645c9111\",\r\n    \"review\": \"Ex a bibendum quis volutpat consequat euismod vulputate parturient laoreet diam sagittis amet at blandit.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37cb14eb5c17645c9112\",\r\n    \"review\": \"Auctor euismod interdum augue tristique senectus nascetur cras justo eleifend mattis libero id adipiscing amet placerat\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37dd14eb5c17645c9113\",\r\n    \"review\": \"A facilisi justo ornare magnis velit diam dictumst parturient arcu nullam rhoncus nec!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37f114eb5c17645c9114\",\r\n    \"review\": \"Porttitor ullamcorper rutrum semper proin mus felis varius convallis conubia nisl erat lectus eget.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a381714eb5c17645c9115\",\r\n    \"review\": \"Porttitor ullamcorper rutrum semper proin mus felis varius convallis conubia nisl erat lectus eget.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a382d14eb5c17645c9116\",\r\n    \"review\": \"Semper blandit felis nostra facilisi sodales pulvinar habitasse diam sapien lobortis urna nunc ipsum orci.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a384114eb5c17645c9117\",\r\n    \"review\": \"Neque amet vel integer placerat ex pretium elementum vitae quis ullamcorper nullam nunc habitant cursus justo!!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a385614eb5c17645c9118\",\r\n    \"review\": \"Sollicitudin sagittis ex ut fringilla enim condimentum et netus tristique.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a387214eb5c17645c9119\",\r\n    \"review\": \"Semper tempus curae at platea lobortis ullamcorper curabitur luctus maecenas nisl laoreet!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38ac14eb5c17645c911a\",\r\n    \"review\": \"Arcu adipiscing lobortis sem finibus consequat ac justo nisi pharetra ultricies facilisi!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38c714eb5c17645c911b\",\r\n    \"review\": \"Rutrum viverra turpis nunc ultricies dolor ornare metus habitant ex quis sociosqu nascetur pellentesque quam!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38da14eb5c17645c911c\",\r\n    \"review\": \"Elementum massa porttitor enim vitae eu ligula vivamus amet imperdiet urna tristique donec mattis mus erat.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38ed14eb5c17645c911d\",\r\n    \"review\": \"Fusce ullamcorper gravida libero nullam lacus litora class orci habitant sollicitudin...\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a390d14eb5c17645c911e\",\r\n    \"review\": \"Varius potenti proin hendrerit felis sit convallis nunc non id facilisis aliquam platea elementum\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a391f14eb5c17645c911f\",\r\n    \"review\": \"Sem feugiat sed lorem vel dignissim platea habitasse dolor suscipit ultricies dapibus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a395b14eb5c17645c9120\",\r\n    \"review\": \"Sem feugiat sed lorem vel dignissim platea habitasse dolor suscipit ultricies dapibus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a399014eb5c17645c9121\",\r\n    \"review\": \"Tortor dolor sed vehicula neque ultrices varius orci feugiat dignissim auctor consequat.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a39a214eb5c17645c9122\",\r\n    \"review\": \"Felis mauris aenean eu lectus fringilla habitasse nullam eros senectus ante etiam!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a39b614eb5c17645c9123\",\r\n    \"review\": \"Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duis\",\r\n    \"rating\": 3,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a7014eb5c17645c9124\",\r\n    \"review\": \"Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a8d14eb5c17645c9125\",\r\n    \"review\": \"Iaculis mauris eget sed nec lobortis rhoncus montes etiam dapibus suspendisse hendrerit quam pellentesque potenti sapien!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a9914eb5c17645c9126\",\r\n    \"review\": \"Netus eleifend adipiscing ligula placerat fusce orci sollicitudin vivamus conubia.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3aaa14eb5c17645c9127\",\r\n    \"review\": \"Eleifend suspendisse ultricies platea primis ut ornare purus vel taciti faucibus justo nunc\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3abc14eb5c17645c9128\",\r\n    \"review\": \"Malesuada consequat congue vel gravida eros conubia in sapien praesent diam!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3acf14eb5c17645c9129\",\r\n    \"review\": \"Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urna.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b1e14eb5c17645c912a\",\r\n    \"review\": \"Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urna.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b3214eb5c17645c912b\",\r\n    \"review\": \"Sociosqu eleifend tincidunt aenean condimentum gravida lorem arcu pellentesque felis dui feugiat nec.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b4714eb5c17645c912c\",\r\n    \"review\": \"Ridiculus facilisis sem id aenean amet penatibus gravida phasellus a mus dui lacinia accumsan!!\",\r\n    \"rating\": 1,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b6714eb5c17645c912e\",\r\n    \"review\": \"Venenatis molestie luctus cubilia taciti tempor faucibus nostra nisi curae integer.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b7c14eb5c17645c912f\",\r\n    \"review\": \"Tempor pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b9f14eb5c17645c9130\",\r\n    \"review\": \"Tempor pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bc414eb5c17645c9131\",\r\n    \"review\": \"Conubia semper efficitur rhoncus suspendisse taciti lectus ex sapien dolor molestie fusce class.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bdc14eb5c17645c9132\",\r\n    \"review\": \"Conubia pharetra pulvinar libero hac class congue curabitur mi porttitor!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bf514eb5c17645c9133\",\r\n    \"review\": \"Nullam felis dictumst eros nulla torquent arcu inceptos mi faucibus ridiculus pellentesque gravida mauris.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c2514eb5c17645c9134\",\r\n    \"review\": \"Euismod suscipit ipsum efficitur rutrum dis mus dictumst laoreet lectus.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c3b14eb5c17645c9135\",\r\n    \"review\": \"Massa orci lacus suspendisse maximus ad integer donec arcu parturient facilisis accumsan consectetur non\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c5314eb5c17645c9136\",\r\n    \"review\": \"Blandit varius finibus imperdiet tortor hendrerit erat rhoncus dictumst inceptos massa in.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c6814eb5c17645c9137\",\r\n    \"review\": \"Tristique semper proin pellentesque ipsum urna habitasse venenatis tincidunt morbi nisi at\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c7814eb5c17645c9138\",\r\n    \"review\": \"Potenti etiam placerat mi metus ipsum curae eget nisl torquent pretium\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c9014eb5c17645c9139\",\r\n    \"review\": \"Molestie non montes at fermentum cubilia quis dis placerat maecenas vulputate sapien facilisis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3ca314eb5c17645c913a\",\r\n    \"review\": \"Velit vulputate faucibus in nascetur praesent potenti primis pulvinar tempor\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3cdc14eb5c17645c913b\",\r\n    \"review\": \"Magna magnis tellus dui vivamus donec placerat vehicula erat turpis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3cf414eb5c17645c913c\",\r\n    \"review\": \"Ligula lorem taciti fringilla himenaeos ex aliquam litora nam ad maecenas sit phasellus lectus!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d1e14eb5c17645c913d\",\r\n    \"review\": \"Nam ultrices quis leo viverra tristique curae facilisi luctus sapien eleifend fames orci lacinia pulvinar.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d3a14eb5c17645c913e\",\r\n    \"review\": \"Ullamcorper ac nec id habitant a commodo eget libero cras congue!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d5314eb5c17645c913f\",\r\n    \"review\": \"Ultrices nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d8614eb5c17645c9140\",\r\n    \"review\": \"Ultrices nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d9b14eb5c17645c9141\",\r\n    \"review\": \"Vitae vulputate id quam metus orci cras mollis vivamus vehicula sapien et\",\r\n    \"rating\": 2,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3de514eb5c17645c9143\",\r\n    \"review\": \"Sem risus tempor auctor mattis netus montes tincidunt mollis lacinia natoque adipiscing\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3e0714eb5c17645c9144\",\r\n    \"review\": \"Feugiat egestas ac pulvinar quis dui ligula tempor ad platea quisque scelerisque!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3e63e12c44188b4dbc5b\",\r\n    \"review\": \"Quisque egestas faucibus primis ridiculus mi felis tristique curabitur habitasse vehicula\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/reviews/5c8a37b114eb5c17645c9111",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "reviews",
+                "5c8a37b114eb5c17645c9111"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Reviews",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"_id\": \"5c8a34ed14eb5c17645c9108\",\r\n    \"review\": \"Cras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a355b14eb5c17645c9109\",\r\n    \"review\": \"Tempus curabitur faucibus auctor bibendum duis gravida tincidunt litora himenaeos facilisis vivamus vehicula potenti semper fusce suspendisse sagittis!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a359914eb5c17645c910a\",\r\n    \"review\": \"Convallis turpis porttitor sapien ad urna efficitur dui vivamus in praesent nulla hac non potenti!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a35b614eb5c17645c910b\",\r\n    \"review\": \"Habitasse scelerisque class quam primis convallis integer eros congue nulla proin nam faucibus parturient.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1dfa2f8fb814b56fa181\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a364c14eb5c17645c910c\",\r\n    \"review\": \"Cras consequat fames faucibus ac aliquam dolor a euismod porttitor rhoncus venenatis himenaeos montes tristique pretium libero nisi!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a368c14eb5c17645c910d\",\r\n    \"review\": \"Laoreet justo volutpat per etiam donec at augue penatibus eu facilisis lorem phasellus ipsum tristique urna quam platea.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a36a014eb5c17645c910e\",\r\n    \"review\": \"Senectus lectus eleifend ex lobortis cras nam cursus accumsan tellus lacus faucibus himenaeos posuere!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a36b714eb5c17645c910f\",\r\n    \"review\": \"Pulvinar taciti etiam aenean lacinia natoque interdum fringilla suspendisse nam sapien urna!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a1e1a2f8fb814b56fa182\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a379a14eb5c17645c9110\",\r\n    \"review\": \"Pretium vel inceptos fringilla sit dui fusce varius gravida platea morbi semper erat elit porttitor potenti!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37b114eb5c17645c9111\",\r\n    \"review\": \"Ex a bibendum quis volutpat consequat euismod vulputate parturient laoreet diam sagittis amet at blandit.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37cb14eb5c17645c9112\",\r\n    \"review\": \"Auctor euismod interdum augue tristique senectus nascetur cras justo eleifend mattis libero id adipiscing amet placerat\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37dd14eb5c17645c9113\",\r\n    \"review\": \"A facilisi justo ornare magnis velit diam dictumst parturient arcu nullam rhoncus nec!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a37f114eb5c17645c9114\",\r\n    \"review\": \"Porttitor ullamcorper rutrum semper proin mus felis varius convallis conubia nisl erat lectus eget.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24402f8fb814b56fa190\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a381714eb5c17645c9115\",\r\n    \"review\": \"Porttitor ullamcorper rutrum semper proin mus felis varius convallis conubia nisl erat lectus eget.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a382d14eb5c17645c9116\",\r\n    \"review\": \"Semper blandit felis nostra facilisi sodales pulvinar habitasse diam sapien lobortis urna nunc ipsum orci.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a384114eb5c17645c9117\",\r\n    \"review\": \"Neque amet vel integer placerat ex pretium elementum vitae quis ullamcorper nullam nunc habitant cursus justo!!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a385614eb5c17645c9118\",\r\n    \"review\": \"Sollicitudin sagittis ex ut fringilla enim condimentum et netus tristique.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a387214eb5c17645c9119\",\r\n    \"review\": \"Semper tempus curae at platea lobortis ullamcorper curabitur luctus maecenas nisl laoreet!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a1ec62f8fb814b56fa183\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38ac14eb5c17645c911a\",\r\n    \"review\": \"Arcu adipiscing lobortis sem finibus consequat ac justo nisi pharetra ultricies facilisi!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38c714eb5c17645c911b\",\r\n    \"review\": \"Rutrum viverra turpis nunc ultricies dolor ornare metus habitant ex quis sociosqu nascetur pellentesque quam!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38da14eb5c17645c911c\",\r\n    \"review\": \"Elementum massa porttitor enim vitae eu ligula vivamus amet imperdiet urna tristique donec mattis mus erat.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a38ed14eb5c17645c911d\",\r\n    \"review\": \"Fusce ullamcorper gravida libero nullam lacus litora class orci habitant sollicitudin...\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a390d14eb5c17645c911e\",\r\n    \"review\": \"Varius potenti proin hendrerit felis sit convallis nunc non id facilisis aliquam platea elementum\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a391f14eb5c17645c911f\",\r\n    \"review\": \"Sem feugiat sed lorem vel dignissim platea habitasse dolor suscipit ultricies dapibus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a211f2f8fb814b56fa188\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a395b14eb5c17645c9120\",\r\n    \"review\": \"Sem feugiat sed lorem vel dignissim platea habitasse dolor suscipit ultricies dapibus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a399014eb5c17645c9121\",\r\n    \"review\": \"Tortor dolor sed vehicula neque ultrices varius orci feugiat dignissim auctor consequat.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a39a214eb5c17645c9122\",\r\n    \"review\": \"Felis mauris aenean eu lectus fringilla habitasse nullam eros senectus ante etiam!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a39b614eb5c17645c9123\",\r\n    \"review\": \"Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duis\",\r\n    \"rating\": 3,\r\n    \"user\": \"5c8a20d32f8fb814b56fa187\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a7014eb5c17645c9124\",\r\n    \"review\": \"Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a8d14eb5c17645c9125\",\r\n    \"review\": \"Iaculis mauris eget sed nec lobortis rhoncus montes etiam dapibus suspendisse hendrerit quam pellentesque potenti sapien!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3a9914eb5c17645c9126\",\r\n    \"review\": \"Netus eleifend adipiscing ligula placerat fusce orci sollicitudin vivamus conubia.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3aaa14eb5c17645c9127\",\r\n    \"review\": \"Eleifend suspendisse ultricies platea primis ut ornare purus vel taciti faucibus justo nunc\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3abc14eb5c17645c9128\",\r\n    \"review\": \"Malesuada consequat congue vel gravida eros conubia in sapien praesent diam!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3acf14eb5c17645c9129\",\r\n    \"review\": \"Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urna.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23c82f8fb814b56fa18d\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b1e14eb5c17645c912a\",\r\n    \"review\": \"Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urna.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b3214eb5c17645c912b\",\r\n    \"review\": \"Sociosqu eleifend tincidunt aenean condimentum gravida lorem arcu pellentesque felis dui feugiat nec.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b4714eb5c17645c912c\",\r\n    \"review\": \"Ridiculus facilisis sem id aenean amet penatibus gravida phasellus a mus dui lacinia accumsan!!\",\r\n    \"rating\": 1,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b6714eb5c17645c912e\",\r\n    \"review\": \"Venenatis molestie luctus cubilia taciti tempor faucibus nostra nisi curae integer.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b7c14eb5c17645c912f\",\r\n    \"review\": \"Tempor pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a23de2f8fb814b56fa18e\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3b9f14eb5c17645c9130\",\r\n    \"review\": \"Tempor pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bc414eb5c17645c9131\",\r\n    \"review\": \"Conubia semper efficitur rhoncus suspendisse taciti lectus ex sapien dolor molestie fusce class.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bdc14eb5c17645c9132\",\r\n    \"review\": \"Conubia pharetra pulvinar libero hac class congue curabitur mi porttitor!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3bf514eb5c17645c9133\",\r\n    \"review\": \"Nullam felis dictumst eros nulla torquent arcu inceptos mi faucibus ridiculus pellentesque gravida mauris.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24282f8fb814b56fa18f\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c2514eb5c17645c9134\",\r\n    \"review\": \"Euismod suscipit ipsum efficitur rutrum dis mus dictumst laoreet lectus.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c3b14eb5c17645c9135\",\r\n    \"review\": \"Massa orci lacus suspendisse maximus ad integer donec arcu parturient facilisis accumsan consectetur non\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295a\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c5314eb5c17645c9136\",\r\n    \"review\": \"Blandit varius finibus imperdiet tortor hendrerit erat rhoncus dictumst inceptos massa in.\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c6814eb5c17645c9137\",\r\n    \"review\": \"Tristique semper proin pellentesque ipsum urna habitasse venenatis tincidunt morbi nisi at\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c7814eb5c17645c9138\",\r\n    \"review\": \"Potenti etiam placerat mi metus ipsum curae eget nisl torquent pretium\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3c9014eb5c17645c9139\",\r\n    \"review\": \"Molestie non montes at fermentum cubilia quis dis placerat maecenas vulputate sapien facilisis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3ca314eb5c17645c913a\",\r\n    \"review\": \"Velit vulputate faucibus in nascetur praesent potenti primis pulvinar tempor\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a245f2f8fb814b56fa191\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3cdc14eb5c17645c913b\",\r\n    \"review\": \"Magna magnis tellus dui vivamus donec placerat vehicula erat turpis\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3cf414eb5c17645c913c\",\r\n    \"review\": \"Ligula lorem taciti fringilla himenaeos ex aliquam litora nam ad maecenas sit phasellus lectus!!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d1e14eb5c17645c913d\",\r\n    \"review\": \"Nam ultrices quis leo viverra tristique curae facilisi luctus sapien eleifend fames orci lacinia pulvinar.\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d3a14eb5c17645c913e\",\r\n    \"review\": \"Ullamcorper ac nec id habitant a commodo eget libero cras congue!\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2970\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d5314eb5c17645c913f\",\r\n    \"review\": \"Ultrices nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24822f8fb814b56fa192\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d8614eb5c17645c9140\",\r\n    \"review\": \"Ultrices nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2974\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3d9b14eb5c17645c9141\",\r\n    \"review\": \"Vitae vulputate id quam metus orci cras mollis vivamus vehicula sapien et\",\r\n    \"rating\": 2,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c296c\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3de514eb5c17645c9143\",\r\n    \"review\": \"Sem risus tempor auctor mattis netus montes tincidunt mollis lacinia natoque adipiscing\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2961\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3e0714eb5c17645c9144\",\r\n    \"review\": \"Feugiat egestas ac pulvinar quis dui ligula tempor ad platea quisque scelerisque!\",\r\n    \"rating\": 5,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2951\"\r\n  },\r\n  {\r\n    \"_id\": \"5c8a3e63e12c44188b4dbc5b\",\r\n    \"review\": \"Quisque egestas faucibus primis ridiculus mi felis tristique curabitur habitasse vehicula\",\r\n    \"rating\": 4,\r\n    \"user\": \"5c8a24a02f8fb814b56fa193\",\r\n    \"tour\": \"5c88fa8cf4afda39709c2966\"\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/reviews",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "reviews"
+              ],
+              "query": [
+                {
+                  "key": "tour",
+                  "value": "5c88fa8cf4afda39709c2961",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-rating",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "review,rating",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\":5,\r\n    \"review\":\"Sem risus tempor auctor mattis netus montes tincidunt mollis lacinia natoque adipiscing\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/reviews/5c8a3de514eb5c17645c9143",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "reviews",
+                "5c8a3de514eb5c17645c9143"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tour/Review",
+      "item": [
+        {
+          "name": "Create Review On Tour",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"this is a review on a tour\",\r\n    \"rating\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/5c88fa8cf4afda39709c295d/reviews",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "5c88fa8cf4afda39709c295d",
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Reviews On Tour",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"this is a review on a tour\",\r\n    \"rating\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/tours/5c88fa8cf4afda39709c295d/reviews",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "tours",
+                "5c88fa8cf4afda39709c295d",
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Update Current User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"update name\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/updateMe",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "updateMe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Current User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/deleteMe",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "deleteMe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Current User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/getMe",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "getMe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users?limit=30",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "tour",
+                  "value": "5c88fa8cf4afda39709c2961",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-rating",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "30"
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "review,rating",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/5c8a211f2f8fb814b56fa188",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "5c8a211f2f8fb814b56fa188"
+              ],
+              "query": [
+                {
+                  "key": "tour",
+                  "value": "5c88fa8cf4afda39709c2961",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-rating",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "review,rating",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/5c8a211f2f8fb814b56fa188",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "5c8a211f2f8fb814b56fa188"
+              ],
+              "query": [
+                {
+                  "key": "tour",
+                  "value": "5c88fa8cf4afda39709c2961",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-rating",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "review,rating",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"updated name\",\r\n    \"photo\": \"armita.jpg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/app/v1/users/5c8a211f2f8fb814b56fa188",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "app",
+                "v1",
+                "users",
+                "5c8a211f2f8fb814b56fa188"
+              ],
+              "query": [
+                {
+                  "key": "tour",
+                  "value": "5c88fa8cf4afda39709c2961",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-rating",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "review,rating",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
