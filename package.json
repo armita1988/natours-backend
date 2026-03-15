@@ -1,11 +1,11 @@
 {
-  "name": "natours",
+  "name": "natours-backend",
   "version": "1.0.0",
-  "description": "Fullstack project (MERN)",
+  "description": "backend for Natours project (MERN)",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "cross-env NODE_ENV=production nodemon server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "debug": "ndb server.js"
   },
   "repository": {

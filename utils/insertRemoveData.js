@@ -64,15 +64,9 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData()
     .then((res) => {
-      console.log(
-        ` ********* ${res.deletedTours.length} tours removed from DB ********`,
-      );
-      console.log(
-        ` ********* ${res.deletedUsers.length} users removed from DB ********`,
-      );
-      console.log(
-        ` ********* ${res.deletedReviews.length} reviews removed from DB ********`,
-      );
+      console.log(` *********  tours removed from DB ********`);
+      console.log(` *********  users removed from DB ********`);
+      console.log(` *********  reviews removed from DB ********`);
     })
     .catch((err) => console.log(err))
     .finally(() => process.exit());

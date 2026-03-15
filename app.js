@@ -16,7 +16,12 @@ const globalErrorHandler = require('./controllers/errorsController');
 const app = express();
 
 // Adds headers: Access-Control-Allow-Origin: *
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+);
 
 // Set security HTTP headers
 app.use(helmet());

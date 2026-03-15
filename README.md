@@ -10,7 +10,7 @@ It provides a complete backend foundation for a modern tours platform, including
 
 ## Live Status
 
-This API is designed to be deployed as a standalone backend service and connected to a separate frontend client (React-based frontend plannedپ).
+This API is designed to be deployed as a standalone backend service and connected to a separate frontend client (React-based frontend planned).
 
 ---
 
