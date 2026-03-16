@@ -4,7 +4,7 @@ const ApiFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
 
 module.exports.createReview = catchAsync(async (req, res, next) => {
-  console.log(req.params);
+  // console.log(req.params);
   if (!req.body.tour) {
     req.body.tour = req.params.tourId;
   }

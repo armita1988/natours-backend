@@ -4,12 +4,12 @@ const AppError = require('../utils/appError');
 const ApiFeatures = require('../utils/apiFeatures');
 
 const filterObject = (inputObj, ...allowedFields) => {
-  const newObj = Object.keys(inputObj).forEach((key) => {
+  Object.keys(inputObj).forEach((key) => {
     if (!allowedFields.includes(key)) {
       delete inputObj[key];
     }
   });
-  return newObj;
+  return inputObj;
 };
 
 module.exports.updateMe = catchAsync(async (req, res, next) => {
@@ -94,7 +94,7 @@ module.exports.deleteUser = catchAsync(async (req, res, next) => {
   if (!user) {
     throw new AppError('No user found with that ID', 404);
   }
-  user.status(204).json({
+  res.status(204).json({
     status: 'success',
     message: 'user deleted successfully',
   });
@@ -114,7 +114,7 @@ module.exports.updateUser = catchAsync(async (req, res, next) => {
   if (!updatedUser) {
     throw new AppError('No user found with that ID', 404);
   }
-  updatedUser.status(200).json({
+  res.status(200).json({
     status: 'success',
     data: { user: updatedUser },
   });
