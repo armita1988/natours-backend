@@ -75,7 +75,7 @@ curl http://localhost:3000/app/v1/tours
 
 **Endpoint**
 
-GET http://localhost:3000/app/v1/tours/5c88fa8cf4afda39709c295d
+GET http://localhost:3000/app/v1/tours/:tourId
 
 **Example**
 
