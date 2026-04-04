@@ -23,7 +23,7 @@ const signJwtToken = (id) => {
   return token;
 };
 
-const createSendToken = (res, user, statusCode, isLogOut = false) => {
+const createSendToken = (res, user, statusCode) => {
   //sign JWT token
   const token = signJwtToken(user._id);
 
@@ -31,15 +31,14 @@ const createSendToken = (res, user, statusCode, isLogOut = false) => {
   user.password = undefined;
 
   //set jwt in cookie
-  res.cookie('jwt', isLogOut ? 'loggedout' : token, {
+  res.cookie('jwt', token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'none',
-    expires: isLogOut
-      ? new Date(Date.now() + 10 * 1000)
-      : new Date(
-          Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
-        ),
+    path: '/',
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+    ),
   });
 
   //send response
@@ -189,7 +188,19 @@ module.exports.forgotPassword = catchAsync(async (req, res, next) => {
 
 module.exports.logout = catchAsync(async (req, res, next) => {
   //create JWT token & send response to client
-  createSendToken(res, null, 200, true);
+  //set jwt in cookie
+  res.clearCookie('jwt', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'none',
+    path: '/',
+  });
+
+  //send response
+  res.status(200).json({
+    status: 'success',
+    message: 'you logged out successfully',
+  });
 });
 
 module.exports.resetPassword = catchAsync(async (req, res, next) => {
