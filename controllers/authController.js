@@ -52,20 +52,22 @@ const createSendToken = (res, user, statusCode) => {
 };
 
 module.exports.isAuthenticated = catchAsync(async (req, res, next) => {
-  //check if jwt token exists in the header
   let token;
+  // 1) check Authorization header first for jwt
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
   ) {
     token = req.headers.authorization.split(' ')[1];
+  } // 2) if no header token, check cookie
+  else if (req.cookies && req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
   if (token === 'null' || !token) {
     throw new AppError('you are not logged in. please first log in', 401);
   }
 
   //validate jwt token
-
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
   // console.log(decoded);
 

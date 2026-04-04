@@ -20,6 +20,7 @@
   "homepage": "https://github.com/armita1988/natours#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotconfig": "^0.0.1-security",
     "dotenv": "^17.2.3",

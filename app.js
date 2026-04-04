@@ -6,6 +6,7 @@ const helmet = require('helmet');
 // const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const AppError = require('./utils/appError');
 const tourRouter = require('./routes/tourRoutes');
@@ -68,6 +69,9 @@ app.set('query parser', 'extended');
 
 //add body to request
 app.use(express.json());
+
+//parse cookies
+app.use(cookieParser());
 //routes
 app.use('/app/v1/tours', tourRouter);
 app.use('/app/v1/users', userRouter);
