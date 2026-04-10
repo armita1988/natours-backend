@@ -117,7 +117,7 @@ tourSchema.index({ price: 1, ratingsAverage: -1 });
 tourSchema.pre(/^find/, function () {
   this.populate({
     path: 'guides',
-    select: 'name email',
+    // select: 'name email role photo',
   });
 });
 
