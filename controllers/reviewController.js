@@ -75,6 +75,9 @@ module.exports.getAllReviews = catchAsync(async (req, res, next) => {
 });
 
 module.exports.updateReview = catchAsync(async (req, res, next) => {
+  if (!req.body.user) {
+    req.body.user = req.user._id;
+  }
   let review = await Review.findById(req.params.id);
 
   if (!review) {
@@ -88,6 +91,20 @@ module.exports.updateReview = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       review,
+    },
+  });
+});
+
+module.exports.getMyReviews = catchAsync(async (req, res, next) => {
+  const reviews = await Review.find({ user: req.user._id }).populate({
+    path: 'booking',
+  });
+
+  res.status(200).json({
+    status: 'success',
+    results: reviews.length,
+    data: {
+      reviews,
     },
   });
 });

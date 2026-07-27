@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
       required: [true, 'user must have an email'],
       validate: [validator.isEmail, 'please enter a valid email'],
     },
-    photo: String,
+    photo: { type: String, default: 'default.jpg' },
     role: {
       type: String,
       default: 'user',
@@ -63,6 +63,13 @@ const userSchema = new mongoose.Schema(
   },
 );
 
+//virtuals
+userSchema.virtual('bookings', {
+  ref: 'Booking',
+  foreignField: 'user',
+  localField: '_id',
+});
+
 //hooks
 userSchema.pre('save', async function () {
   if (this.isNew || this.isModified('password')) {
@@ -81,6 +88,11 @@ userSchema.pre(/^find/, function () {
   this.find({ active: { $ne: false } });
 });
 
+userSchema.pre(/^find/, function () {
+  this.populate({
+    path: 'bookings',
+  });
+});
 // methods
 userSchema.methods.isPasswordCorrect = async function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);

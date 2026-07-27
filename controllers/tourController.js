@@ -7,6 +7,7 @@ module.exports.getAllTours = catchAsync(async (req, res, next) => {
   const queryStr = req.customQuery || req.query;
   //define query
   const features = new ApiFeatures(Tour.find(), queryStr)
+    .search()
     .filter()
     .sort()
     .selectFields()
@@ -25,7 +26,12 @@ module.exports.getAllTours = catchAsync(async (req, res, next) => {
 });
 
 module.exports.getTour = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.params.id).populate({ path: 'reviews' });
+  const tour = await Tour.findById(req.params.id)
+    .populate({ path: 'reviews' })
+    .populate({
+      path: 'guides',
+      // select: 'name email role photo',
+    });
 
   if (!tour) {
     throw new AppError(`'No tour found with ID :${req.params.id}`, 404);
@@ -63,6 +69,7 @@ module.exports.updateTour = catchAsync(async (req, res, next) => {
 });
 
 module.exports.createTour = catchAsync(async (req, res, next) => {
+  console.log('File:', req.files);
   const tour = await Tour.create(req.body);
   res.status(201).json({
     status: 'success',

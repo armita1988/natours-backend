@@ -1,0 +1,9 @@
+.github
+.git
+.vscode
+node_modules
+postman
+.gitignore
+*.env
+*.env.*
+debug.log

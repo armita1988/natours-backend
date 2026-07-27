@@ -5,6 +5,7 @@ const authController = require('../controllers/authController');
 const router = express.Router({ mergeParams: true });
 router.use(authController.isAuthenticated);
 
+router.route('/my-reviews').get(reviewController.getMyReviews);
 router
   .route('/')
   .post(authController.isAuthorized('user'), reviewController.createReview)

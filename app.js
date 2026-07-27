@@ -12,6 +12,9 @@ const AppError = require('./utils/appError');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
+const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
+
 const globalErrorHandler = require('./controllers/errorsController');
 
 const app = express();
@@ -25,7 +28,7 @@ app.use(
 );
 
 // Set security HTTP headers
-app.use(helmet());
+// app.use(helmet());
 // Development logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -39,8 +42,15 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
+//checkout webhook
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+);
+
 // Body parser, reading data from body into req.body
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({ limit: '100kb' }));
 
 // Data sanitization against NoSQL query injection
 // app.use(mongoSanitize());
@@ -49,26 +59,23 @@ app.use(express.json({ limit: '10kb' }));
 // app.use(xss());
 
 // Prevent parameter pollution
-app.use(
-  hpp({
-    whitelist: [
-      'duration',
-      'ratingsQuantity',
-      'ratingsAverage',
-      'maxGroupSize',
-      'difficulty',
-      'price',
-    ],
-  }),
-);
+// app.use(
+//   hpp({
+//     whitelist: [
+//       'duration',
+//       'ratingsQuantity',
+//       'ratingsAverage',
+//       'maxGroupSize',
+//       'difficulty',
+//       'price',
+//     ],
+//   }),
+// );
 
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
 
 app.set('query parser', 'extended');
-
-//add body to request
-app.use(express.json());
 
 //parse cookies
 app.use(cookieParser());
@@ -76,11 +83,23 @@ app.use(cookieParser());
 app.use('/app/v1/tours', tourRouter);
 app.use('/app/v1/users', userRouter);
 app.use('/app/v1/reviews', reviewRouter);
+app.use('/app/v1/bookings', bookingRouter);
+
+app.get('/health', (req, res, next) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'Trailora API',
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+  });
+});
 
 //handle undefined routes
 app.use((req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
+
 //global error handler
 app.use(globalErrorHandler);
 module.exports = app;

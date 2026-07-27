@@ -13,7 +13,13 @@ router.route('/logout').post(authController.logout);
 
 //all below routes need authentication
 router.use(authController.isAuthenticated);
-router.route('/updateMe').patch(userController.updateMe);
+router
+  .route('/updateMe')
+  .patch(
+    userController.uploadUserPhoto,
+    userController.resizeUserPhoto,
+    userController.updateMe,
+  );
 router.route('/deleteMe').delete(userController.deleteMe);
 router.route('/me').get(userController.getMe, userController.getUser);
 router.patch('/updateMyPassword', authController.updateMyPassword);

@@ -1,0 +1,23 @@
+{
+  "tours": 20,
+  "users": 36,
+  "reviews": 140,
+  "bookings": 100,
+  "tour_images": 80,
+  "user_images": 37,
+  "password_for_all_seed_users": "Trailora123!",
+  "image_dimensions": "2000x1333 for tour images; 512x512 for user avatars",
+  "relationships": {
+    "tour_ids_unique": true,
+    "user_ids_unique": true,
+    "review_tour_refs_valid": true,
+    "review_user_refs_valid": true,
+    "booking_tour_refs_valid": true,
+    "booking_user_refs_valid": true,
+    "tour_guide_refs_valid": true,
+    "tour_names_length_ok": true,
+    "tour_difficulty_enum_ok": true,
+    "tour_image_files_exist": true,
+    "user_photo_files_exist": true
+  }
+}

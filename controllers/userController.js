@@ -1,7 +1,31 @@
+const multer = require('multer');
+const sharp = require('sharp');
+const path = require('path');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const ApiFeatures = require('../utils/apiFeatures');
+
+// const multerStorage = multer.memoryStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/img/users');
+//   },
+//   filename: (req, file, cb) => {
+//     const ext = file.mimetype.split('/')[1];
+//     cb(null, `user-${req.user._id}-${Date.now()}.${ext}`);
+//   },
+// });
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image')) {
+      cb(null, true);
+    } else {
+      cb(new AppError('Only images are allowed!', 400), false);
+    }
+  },
+});
 
 const filterObject = (inputObj, ...allowedFields) => {
   Object.keys(inputObj).forEach((key) => {
@@ -12,6 +36,21 @@ const filterObject = (inputObj, ...allowedFields) => {
   return inputObj;
 };
 
+module.exports.uploadUserPhoto = upload.single('photo');
+module.exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
+  await sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(
+      path.join(__dirname, '..', 'public', 'img', 'users', req.file.filename),
+    );
+  next();
+});
+
 module.exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm) {
     throw new AppError(
@@ -20,7 +59,9 @@ module.exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
   //filter out unexpected fields
-  const filteredBody = filterObject(req.body, 'email', 'name');
+  let filteredBody = {};
+  filteredBody = filterObject(req.body, 'email', 'name', 'photo');
+  if (req.file) filteredBody.photo = req.file.filename;
 
   //update user
   const updatedUser = await User.findByIdAndUpdate(req.user._id, filteredBody, {

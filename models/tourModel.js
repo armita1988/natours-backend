@@ -74,14 +74,23 @@ const tourSchema = new mongoose.Schema(
     slug: String,
     createdAt: {
       type: Date,
-      default: new Date().toISOString(),
+      default: Date.now,
     },
     secretTour: {
       type: Boolean,
       default: false,
       select: false,
     },
-
+    schedule: {
+      months: {
+        type: [Number],
+        default: [1, 7, 12],
+      },
+      daysOfMonth: {
+        type: [Number],
+        default: [1, 17],
+      },
+    },
     startLocation: locationSchema,
     locations: [locationSchema.clone().add({ day: Number })],
     guides: [
@@ -114,12 +123,12 @@ const tourSchema = new mongoose.Schema(
 //index
 tourSchema.index({ price: 1, ratingsAverage: -1 });
 //hooks
-tourSchema.pre(/^find/, function () {
-  this.populate({
-    path: 'guides',
-    // select: 'name email role photo',
-  });
-});
+// tourSchema.pre(/^find/, function () {
+//   this.populate({
+//     path: 'guides',
+//     // select: 'name email role photo',
+//   });
+// });
 
 tourSchema.pre('save', function () {
   this.slug = slugify(this.name, {
@@ -128,10 +137,10 @@ tourSchema.pre('save', function () {
   });
 });
 
-tourSchema.post('save', function (doc) {
-  console.log('document saved...');
-  console.log(doc);
-});
+// tourSchema.post('save', function (doc) {
+//   console.log('document saved...');
+//   console.log(doc);
+// });
 
 tourSchema.pre(/^find/, function () {
   this.find({ secretTour: { $ne: true } });
@@ -146,8 +155,32 @@ tourSchema.pre('aggregate', function () {
   // console.log(this.pipeline());
 });
 
-tourSchema.virtual('durationWeeks').get(function () {
-  return Math.round(this.duration / 7);
+// tourSchema.virtual('durationWeeks').get(function () {
+//   return Math.round(this.duration / 7);
+// });
+
+tourSchema.virtual('nextStartDate').get(function () {
+  const now = new Date();
+  const currentYear = now.getUTCFullYear();
+  const upcomingschedules = [];
+  const months = this.schedule?.months;
+  const daysOfMonth = this.schedule?.daysOfMonth;
+
+  if (!Array.isArray(months) || !Array.isArray(daysOfMonth)) {
+    return null;
+  }
+
+  for (let year = currentYear; year <= currentYear + 1; year++) {
+    months.forEach((month) => {
+      daysOfMonth.forEach((day) => {
+        const date = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+        if (date > now) {
+          upcomingschedules.push(date);
+        }
+      });
+    });
+  }
+  return upcomingschedules.sort((a, b) => a - b)[0] || null;
 });
 
 tourSchema.virtual('reviews', {

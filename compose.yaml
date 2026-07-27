@@ -1,0 +1,88 @@
+services:
+  api:
+    build: .
+    image: trailora-backend:dev
+    container_name: trailora-dev-api
+    restart: unless-stopped
+
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:7000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+      start_interval: 5s
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/trailora-dev
+
+    env_file:
+      - ./config.env
+
+    ports:
+      - '2000:7000'
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+      seed:
+        condition: service_completed_successfully
+
+    volumes:
+      - .:/app
+      - trailora-dev-node-modules:/app/node_modules
+  mongo:
+    image: mongo:7
+    container_name: mongo-dev
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mongosh',
+          '--quiet',
+          '--eval',
+          "quit(db.adminCommand('ping').ok ? 0 : 1)",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_interval: 5s
+      start_period: 30s
+
+    ports:
+      - '27018:27017'
+
+    volumes:
+      - trailora-dev-mongo-data:/data/db
+
+  seed:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: mongo-seed
+
+    restart: 'no'
+
+    env_file:
+      - ./config.env
+
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/trailora-dev
+
+    command:
+      [
+        'sh',
+        '-c',
+        'node ./utils/importDeleteData.js --delete && node ./utils/importDeleteData.js --import',
+      ]
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  trailora-dev-node-modules:
+    name: trailora-dev-node-modules
+  trailora-dev-mongo-data:
+    name: trailora-dev-mongo-data

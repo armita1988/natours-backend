@@ -1,0 +1,49 @@
+services:
+  api:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.prod
+    image: armita1988/trailora-backend:v1.0.0
+    container_name: trailora-prod-api
+    restart: unless-stopped
+
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:7000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+      start_interval: 5s
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/trailora-prod
+      - NODE_ENV=production
+
+    env_file:
+      - ./config.env
+
+    ports:
+      - '127.0.0.1:3000:7000'
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongo:7
+    container_name: mongo-prod
+    restart: unless-stopped
+    healthcheck:
+      test:
+        ['CMD', 'mongosh', '--quiet', '--eval', "db.adminCommand('ping').ok"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_interval: 5s
+      start_period: 30s
+
+    volumes:
+      - trailora-prod-mongo-data:/data/db
+
+volumes:
+  trailora-prod-mongo-data:
+    name: trailora-prod-mongo-data

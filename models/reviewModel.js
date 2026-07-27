@@ -11,10 +11,11 @@ const reviewSchema = new mongoose.Schema(
       type: Number,
       min: 1,
       max: 5,
+      required: [true, 'Review must have a rating'],
     },
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
     },
     tour: {
       type: mongoose.Schema.ObjectId,
@@ -25,6 +26,12 @@ const reviewSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: 'User',
       required: [true, 'Review must belong to a user'],
+    },
+    booking: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Booking',
+      required: [true, 'Review must belong to a booking.'],
+      unique: true,
     },
   },
   {
@@ -38,9 +45,9 @@ reviewSchema.pre(/^find/, function () {
     path: 'user',
     select: 'name photo',
   });
-  // .populate({
-  //   path: 'tour',
-  //   select: 'name duration',
+  //  .populate({
+  //   path: 'booking',
+  //   select: 'imageCover tourName',
   // });
 });
 

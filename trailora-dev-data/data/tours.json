@@ -1,0 +1,1215 @@
+[
+  {
+    "_id": "650000000000000000000001",
+    "name": "Blue Ridge Mist Hike",
+    "duration": 3,
+    "maxGroupSize": 14,
+    "difficulty": "easy",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 497,
+    "summary": "A gentle ridge-walking escape through foggy hardwood forests, creek crossings, and wide Appalachian viewpoints.",
+    "description": "Blue Ridge Mist Hike is designed for travelers who want mountain air without a punishing pace. The route follows soft forest paths, quiet overlooks, and small stream valleys where the morning fog often hangs low between the ridges. Guides keep the rhythm relaxed, with time for photography, picnic lunches, and optional sunrise walks. Lodging is simple, cozy, and close to the trailhead, making this a strong first multi-day nature trip for couples, solo travelers, and small groups.",
+    "imageCover": "tour-1-cover.png",
+    "images": ["tour-1-1.png", "tour-1-2.png", "tour-1-3.png"],
+    "startDates": [
+      "2026-04-06T12:00:00Z",
+      "2026-05-06T12:00:00Z",
+      "2026-09-06T12:00:00Z",
+      "2027-04-06T12:00:00Z",
+      "2027-05-06T12:00:00Z",
+      "2027-09-06T12:00:00Z"
+    ],
+    "slug": "blue-ridge-mist-hike",
+    "createdAt": "2025-02-03T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [4, 5, 9, 10],
+      "daysOfMonth": [6, 20]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-82.2897, 35.5951],
+      "address": "Trailhead area near Asheville, North Carolina, USA",
+      "description": "Asheville, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-82.2645, 35.6118],
+        "address": "Raven Fern Creek",
+        "description": "Day-one forest creek walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-82.2219, 35.6391],
+        "address": "Misty Ridge Overlook",
+        "description": "Blue hour ridge viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-82.3076, 35.5742],
+        "address": "Laurel Hollow Camp",
+        "description": "Quiet valley lodge return",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"]
+  },
+  {
+    "_id": "650000000000000000000002",
+    "name": "Pacific Cliffside Traverse",
+    "duration": 5,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 897,
+    "summary": "A windswept coastal route with sea stacks, tide-pool walks, forested headlands, and dramatic sunset viewpoints.",
+    "description": "This five-day traverse blends coastal hiking with low-impact exploration. Mornings begin on forested headlands above the surf, while afternoons focus on beaches, tide pools, and small coastal communities. The itinerary is weather-aware and avoids exposed sections during unsafe tide windows. It is active, salty, and scenic, with enough elevation to feel rewarding but enough recovery time to stay enjoyable.",
+    "imageCover": "tour-2-cover.png",
+    "images": ["tour-2-1.png", "tour-2-2.png", "tour-2-3.png"],
+    "startDates": [
+      "2026-05-04T12:00:00Z",
+      "2026-06-04T12:00:00Z",
+      "2026-08-04T12:00:00Z",
+      "2027-05-04T12:00:00Z",
+      "2027-06-04T12:00:00Z",
+      "2027-08-04T12:00:00Z"
+    ],
+    "slug": "pacific-cliffside-traverse",
+    "createdAt": "2025-03-04T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 8, 9],
+      "daysOfMonth": [4, 18]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-124.0642, 44.6368],
+      "address": "Coastal trail area near Newport, Oregon, USA",
+      "description": "Newport, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-124.0675, 44.6594],
+        "address": "Fogline Headland",
+        "description": "First cliff viewpoint",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-124.0791, 44.5906],
+        "address": "Driftwood Cove",
+        "description": "Tide-pool and beach walk",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-124.0422, 44.6212],
+        "address": "Spruce Point",
+        "description": "Forested coastal ridge",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"],
+    "priceDiscount": 79
+  },
+  {
+    "_id": "650000000000000000000003",
+    "name": "Redstone Canyon Camp",
+    "duration": 4,
+    "maxGroupSize": 10,
+    "difficulty": "medium",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 765,
+    "summary": "A warm desert-canyon camp with sculpted sandstone corridors, starry skies, and slow golden-hour hikes.",
+    "description": "Redstone Canyon Camp focuses on desert texture rather than speed. Travelers walk through narrow sandstone passages, dry washes, and open mesas with guides who explain fragile desert ecology and responsible trail etiquette. Evenings are spent at a small low-impact camp with warm meals and skywatching. The hiking is moderate, but the dry climate makes steady pacing and hydration essential.",
+    "imageCover": "tour-3-cover.png",
+    "images": ["tour-3-1.png", "tour-3-2.png", "tour-3-3.png"],
+    "startDates": [
+      "2026-03-08T12:00:00Z",
+      "2026-04-08T12:00:00Z",
+      "2026-10-08T12:00:00Z",
+      "2027-03-08T12:00:00Z",
+      "2027-04-08T12:00:00Z",
+      "2027-10-08T12:00:00Z"
+    ],
+    "slug": "redstone-canyon-camp",
+    "createdAt": "2025-04-05T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [3, 4, 10, 11],
+      "daysOfMonth": [8, 22]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-111.891, 37.2982],
+      "address": "Backcountry access point near Kanab, Utah, USA",
+      "description": "Kanab, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-111.9145, 37.2845],
+        "address": "Copper Wash",
+        "description": "Sandstone wash entry",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-111.8672, 37.3124],
+        "address": "Ember Slot",
+        "description": "Narrow canyon passage",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-111.8428, 37.3301],
+        "address": "Mesa Camp",
+        "description": "Low-impact desert camp",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ]
+  },
+  {
+    "_id": "650000000000000000000004",
+    "name": "Sierra Alpine Lakes",
+    "duration": 6,
+    "maxGroupSize": 11,
+    "difficulty": "medium",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 1197,
+    "summary": "A high-country lake trek with granite basins, pine forests, cold clear water, and quiet alpine camps.",
+    "description": "Sierra Alpine Lakes is a classic high-country itinerary built around clear lakes, granite slabs, and steady but manageable elevation gain. The days are active, with optional short climbs for travelers who want more challenge. Camps are selected for low impact and strong views, and guides handle route timing, water strategy, and weather checks. It is ideal for hikers ready for a longer route but not a technical expedition.",
+    "imageCover": "tour-4-cover.png",
+    "images": ["tour-4-1.png", "tour-4-2.png", "tour-4-3.png"],
+    "startDates": [
+      "2026-06-05T12:00:00Z",
+      "2026-07-05T12:00:00Z",
+      "2026-08-05T12:00:00Z",
+      "2027-06-05T12:00:00Z",
+      "2027-07-05T12:00:00Z",
+      "2027-08-05T12:00:00Z"
+    ],
+    "slug": "sierra-alpine-lakes",
+    "createdAt": "2025-05-06T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [6, 7, 8, 9],
+      "daysOfMonth": [5, 19]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-119.5581, 37.8651],
+      "address": "Eastern Sierra trail access, California, USA",
+      "description": "Mammoth Lakes, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-119.5322, 37.884],
+        "address": "Granite Basin",
+        "description": "First alpine basin",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-119.5095, 37.9011],
+        "address": "Mirror Pine Lake",
+        "description": "Lakeside camp and rest stop",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-119.4873, 37.919],
+        "address": "High Pass View",
+        "description": "Upper viewpoint day",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"],
+    "priceDiscount": 120
+  },
+  {
+    "_id": "650000000000000000000005",
+    "name": "Rocky Snowline Adventure",
+    "duration": 7,
+    "maxGroupSize": 8,
+    "difficulty": "difficult",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 5,
+    "price": 1495,
+    "summary": "A demanding winter mountain program with snowshoe routes, ridge views, safety coaching, and lodge recovery nights.",
+    "description": "This winter adventure is built for fit travelers who want a structured alpine experience without technical climbing. Days include snowshoe ascents, avalanche-awareness briefings, navigation practice, and long views over white ridgelines. Guides adjust the route according to weather, snowpack, and group energy. The reward is a rare combination of remote winter scenery and a careful, safety-first itinerary.",
+    "imageCover": "tour-5-cover.png",
+    "images": ["tour-5-1.png", "tour-5-2.png", "tour-5-3.png"],
+    "startDates": [
+      "2026-01-07T12:00:00Z",
+      "2026-02-07T12:00:00Z",
+      "2026-03-07T12:00:00Z",
+      "2027-01-07T12:00:00Z",
+      "2027-02-07T12:00:00Z",
+      "2027-03-07T12:00:00Z"
+    ],
+    "slug": "rocky-snowline-adventure",
+    "createdAt": "2025-06-07T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [1, 2, 3, 12],
+      "daysOfMonth": [7, 21]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-106.4454, 39.4817],
+      "address": "Mountain village area near Leadville, Colorado, USA",
+      "description": "Leadville, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-106.4112, 39.5014],
+        "address": "Pine Snowfield",
+        "description": "Snowshoe warm-up route",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-106.4723, 39.5179],
+        "address": "Windline Ridge",
+        "description": "Exposed ridge viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-106.5291, 39.4952],
+        "address": "Timberline Shelter",
+        "description": "High-country safety stop",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"]
+  },
+  {
+    "_id": "650000000000000000000006",
+    "name": "Everglade Mangrove Paddle",
+    "duration": 3,
+    "maxGroupSize": 10,
+    "difficulty": "easy",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 585,
+    "summary": "A calm kayak and boardwalk escape through mangrove channels, bird habitat, and glassy sunset water.",
+    "description": "Everglade Mangrove Paddle is a slow, water-focused tour for travelers who prefer wildlife observation over long hikes. The route uses sheltered channels and easy paddling distances, with naturalist guides explaining mangrove ecology, nesting birds, and coastal restoration. Afternoons are kept flexible around heat and tides, and evenings bring soft light over the water.",
+    "imageCover": "tour-6-cover.png",
+    "images": ["tour-6-1.png", "tour-6-2.png", "tour-6-3.png"],
+    "startDates": [
+      "2026-01-03T12:00:00Z",
+      "2026-02-03T12:00:00Z",
+      "2026-03-03T12:00:00Z",
+      "2027-01-03T12:00:00Z",
+      "2027-02-03T12:00:00Z",
+      "2027-03-03T12:00:00Z"
+    ],
+    "slug": "everglade-mangrove-paddle",
+    "createdAt": "2025-07-08T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [1, 2, 3, 11],
+      "daysOfMonth": [3, 17]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-81.0892, 25.7617],
+      "address": "Mangrove launch area, Southwest Florida, USA",
+      "description": "Everglades City, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-81.1063, 25.746],
+        "address": "Buttonwood Channel",
+        "description": "First mangrove paddle",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-81.0718, 25.7332],
+        "address": "Heron Bend",
+        "description": "Bird observation inlet",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-81.0555, 25.7756],
+        "address": "Sunset Flat",
+        "description": "Calm-water sunset stop",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ],
+    "priceDiscount": 45
+  },
+  {
+    "_id": "650000000000000000000007",
+    "name": "Cascade Waterfall Trail",
+    "duration": 4,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 795,
+    "summary": "A mossy rainforest trail linking waterfalls, cedar groves, suspension bridges, and quiet mountain creeks.",
+    "description": "This route explores the wet, green side of the Cascades. Each day follows forest paths through cedar, hemlock, fern banks, and cold waterfall spray. It is not technically difficult, but roots, mud, and wet bridges require attention. The tour works especially well for photographers and travelers who love dense forest texture more than big crowds.",
+    "imageCover": "tour-7-cover.png",
+    "images": ["tour-7-1.png", "tour-7-2.png", "tour-7-3.png"],
+    "startDates": [
+      "2026-04-02T12:00:00Z",
+      "2026-05-02T12:00:00Z",
+      "2026-06-02T12:00:00Z",
+      "2027-04-02T12:00:00Z",
+      "2027-05-02T12:00:00Z",
+      "2027-06-02T12:00:00Z"
+    ],
+    "slug": "cascade-waterfall-trail",
+    "createdAt": "2025-08-09T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [4, 5, 6, 9],
+      "daysOfMonth": [2, 16]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-121.6771, 47.5279],
+      "address": "Cascade foothills trail area, Washington, USA",
+      "description": "North Bend, USA"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-121.651, 47.5432],
+        "address": "Cedar Gate",
+        "description": "Old-growth forest entry",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-121.6212, 47.5564],
+        "address": "Twin Falls Shelf",
+        "description": "Waterfall viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-121.7056, 47.5021],
+        "address": "Rain Fern Lodge",
+        "description": "Evening lodge base",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"]
+  },
+  {
+    "_id": "650000000000000000000008",
+    "name": "Silverpine Lake Trek",
+    "duration": 5,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 5,
+    "price": 1095,
+    "summary": "A Canadian alpine lake journey with turquoise water, spruce forest, glacier-fed streams, and crisp morning hikes.",
+    "description": "Silverpine Lake Trek is built around the clean visual drama of the Canadian Rockies without using crowded landmark routes. The group follows forested valleys, moraine viewpoints, and lakeside paths where the water shifts from blue to green through the day. Guides manage pacing, weather layers, and optional viewpoint extensions. It is a strong all-rounder for hikers who want alpine scenery and comfortable structure.",
+    "imageCover": "tour-8-cover.png",
+    "images": ["tour-8-1.png", "tour-8-2.png", "tour-8-3.png"],
+    "startDates": [
+      "2026-06-09T12:00:00Z",
+      "2026-07-09T12:00:00Z",
+      "2026-08-09T12:00:00Z",
+      "2027-06-09T12:00:00Z",
+      "2027-07-09T12:00:00Z",
+      "2027-08-09T12:00:00Z"
+    ],
+    "slug": "silverpine-lake-trek",
+    "createdAt": "2025-09-10T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [6, 7, 8, 9],
+      "daysOfMonth": [9, 23]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-115.5721, 51.1784],
+      "address": "Mountain trail area near Canmore, Alberta, Canada",
+      "description": "Canmore, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-115.5138, 51.2067],
+        "address": "Silverpine Shore",
+        "description": "First lakeside walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-115.472, 51.2248],
+        "address": "Moraine Window",
+        "description": "Glacier-valley viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-115.6025, 51.1637],
+        "address": "Spruce Creek Lodge",
+        "description": "Evening base",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"],
+    "priceDiscount": 95
+  },
+  {
+    "_id": "650000000000000000000009",
+    "name": "Coastal Rainforest Passage",
+    "duration": 6,
+    "maxGroupSize": 10,
+    "difficulty": "medium",
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 5,
+    "price": 1275,
+    "summary": "A temperate-rainforest route with cedar boardwalks, sea mist, rocky beaches, and quiet inlet views.",
+    "description": "Coastal Rainforest Passage combines soft forest walking with shoreline exploration. The itinerary favors small groups, careful tide timing, and low-impact travel through mossy cedar corridors. Weather can be wet, but the mood is part of the experience: green, quiet, and atmospheric. It is a memorable choice for travelers who like texture, ocean air, and remote-feeling trails.",
+    "imageCover": "tour-9-cover.png",
+    "images": ["tour-9-1.png", "tour-9-2.png", "tour-9-3.png"],
+    "startDates": [
+      "2026-05-06T12:00:00Z",
+      "2026-06-06T12:00:00Z",
+      "2026-07-06T12:00:00Z",
+      "2027-05-06T12:00:00Z",
+      "2027-06-06T12:00:00Z",
+      "2027-07-06T12:00:00Z"
+    ],
+    "slug": "coastal-rainforest-passage",
+    "createdAt": "2025-10-11T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 7, 9],
+      "daysOfMonth": [6, 20]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-125.243, 49.3418],
+      "address": "Coastal trail area, Vancouver Island, British Columbia, Canada",
+      "description": "Tofino, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-125.2741, 49.3607],
+        "address": "Cedar Veil Boardwalk",
+        "description": "Moss forest walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-125.3015, 49.3182],
+        "address": "Pebble Inlet",
+        "description": "Rocky beach lunch stop",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-125.2168, 49.3864],
+        "address": "Mistpoint Cabin",
+        "description": "Coastal overnight base",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ]
+  },
+  {
+    "_id": "65000000000000000000000a",
+    "name": "Yukon Aurora Camp",
+    "duration": 4,
+    "maxGroupSize": 9,
+    "difficulty": "easy",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 1185,
+    "summary": "A northern lights camp with snowy forest walks, warm cabins, night-sky watching, and quiet winter landscapes.",
+    "description": "Yukon Aurora Camp is less about distance and more about atmosphere. Days include short snow walks, local ecology talks, and plenty of rest before late-night aurora sessions. Cabins are warm, meals are hearty, and guides help with winter clothing, camera settings, and safety in cold conditions. It is gentle physically but magical when the sky cooperates.",
+    "imageCover": "tour-10-cover.png",
+    "images": ["tour-10-1.png", "tour-10-2.png", "tour-10-3.png"],
+    "startDates": [
+      "2026-01-05T12:00:00Z",
+      "2026-02-05T12:00:00Z",
+      "2026-03-05T12:00:00Z",
+      "2027-01-05T12:00:00Z",
+      "2027-02-05T12:00:00Z",
+      "2027-03-05T12:00:00Z"
+    ],
+    "slug": "yukon-aurora-camp",
+    "createdAt": "2025-11-12T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [1, 2, 3, 11, 12],
+      "daysOfMonth": [5, 19]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-135.0568, 60.7212],
+      "address": "Winter camp access near Whitehorse, Yukon, Canada",
+      "description": "Whitehorse, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-135.1262, 60.7609],
+        "address": "Quiet Spruce Loop",
+        "description": "Daytime snow walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-135.181, 60.7966],
+        "address": "Aurora Field",
+        "description": "Night-sky viewing meadow",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-135.0325, 60.6884],
+        "address": "Warm Cabin Base",
+        "description": "Camp and meal base",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"],
+    "priceDiscount": 110
+  },
+  {
+    "_id": "65000000000000000000000b",
+    "name": "North Atlantic Kayak Route",
+    "duration": 7,
+    "maxGroupSize": 8,
+    "difficulty": "difficult",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 5,
+    "price": 1595,
+    "summary": "A rugged cold-water kayaking route along cliffs, sheltered coves, seabird colonies, and remote coastal camps.",
+    "description": "This is one of Trailora’s more serious water itineraries. Travelers paddle protected sections of a dramatic North Atlantic coastline, with guides choosing daily routes around wind, swell, and visibility. Camps are simple and scenic, and the pace is steady. Prior paddling confidence is recommended, but technical rescue training is reviewed before launch.",
+    "imageCover": "tour-11-cover.png",
+    "images": ["tour-11-1.png", "tour-11-2.png", "tour-11-3.png"],
+    "startDates": [
+      "2026-06-10T12:00:00Z",
+      "2026-07-10T12:00:00Z",
+      "2026-08-10T12:00:00Z",
+      "2027-06-10T12:00:00Z",
+      "2027-07-10T12:00:00Z",
+      "2027-08-10T12:00:00Z"
+    ],
+    "slug": "north-atlantic-kayak-route",
+    "createdAt": "2025-12-13T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [6, 7, 8],
+      "daysOfMonth": [10, 24]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-57.936, 49.5665],
+      "address": "Coastal launch area, Newfoundland and Labrador, Canada",
+      "description": "St. John's, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-57.8892, 49.5901],
+        "address": "Gull Cliff Cove",
+        "description": "Sheltered first paddle",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-57.8328, 49.6134],
+        "address": "Greywater Sound",
+        "description": "Long coastal traverse",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-57.9755, 49.5489],
+        "address": "Tide Camp",
+        "description": "Remote camp beach",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"]
+  },
+  {
+    "_id": "65000000000000000000000c",
+    "name": "Laurentian Forest Weekend",
+    "duration": 3,
+    "maxGroupSize": 16,
+    "difficulty": "easy",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 5,
+    "price": 455,
+    "summary": "A relaxed Quebec forest weekend with lake paths, canoe time, cabin evenings, and beginner-friendly hikes.",
+    "description": "Laurentian Forest Weekend is designed as an accessible nature reset. The hikes are short, the lake time is calm, and the pace works for first-timers or travelers who simply want fresh air without a big expedition. Guides keep the focus on forest ecology, safe canoe basics, and small-group comfort. It is one of the easiest ways to add a real outdoor experience to a long weekend.",
+    "imageCover": "tour-12-cover.png",
+    "images": ["tour-12-1.png", "tour-12-2.png", "tour-12-3.png"],
+    "startDates": [
+      "2026-05-01T12:00:00Z",
+      "2026-06-01T12:00:00Z",
+      "2026-09-01T12:00:00Z",
+      "2027-05-01T12:00:00Z",
+      "2027-06-01T12:00:00Z",
+      "2027-09-01T12:00:00Z"
+    ],
+    "slug": "laurentian-forest-weekend",
+    "createdAt": "2025-01-14T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 9, 10],
+      "daysOfMonth": [1, 15]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-74.5852, 46.0349],
+      "address": "Forest lodge area, Laurentians, Quebec, Canada",
+      "description": "Mont-Tremblant, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-74.5536, 46.0524],
+        "address": "Birch Lake Loop",
+        "description": "Gentle lakeside trail",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-74.6207, 46.0157],
+        "address": "Canoe Cove",
+        "description": "Calm-water canoe session",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-74.5709, 46.0788],
+        "address": "Maple Cabin",
+        "description": "Evening cabin base",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ]
+  },
+  {
+    "_id": "65000000000000000000000d",
+    "name": "Prairie Sky Badlands Walk",
+    "duration": 2,
+    "maxGroupSize": 18,
+    "difficulty": "easy",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 345,
+    "summary": "A short badlands escape through layered clay hills, wide prairie skies, fossil-like textures, and sunset viewpoints.",
+    "description": "This two-day route offers a different side of Canada: open sky, dry gullies, and sculpted clay ridges. The walking is gentle, but the light and textures are striking. Guides focus on geology, erosion, and low-impact movement across fragile terrain. It is ideal for travelers who want a compact trip with strong visual character.",
+    "imageCover": "tour-13-cover.png",
+    "images": ["tour-13-1.png", "tour-13-2.png", "tour-13-3.png"],
+    "startDates": [
+      "2026-05-08T12:00:00Z",
+      "2026-06-08T12:00:00Z",
+      "2026-09-08T12:00:00Z",
+      "2027-05-08T12:00:00Z",
+      "2027-06-08T12:00:00Z",
+      "2027-09-08T12:00:00Z"
+    ],
+    "slug": "prairie-sky-badlands-walk",
+    "createdAt": "2025-02-15T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 9],
+      "daysOfMonth": [8, 22]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-112.8315, 51.4623],
+      "address": "Badlands access area, Alberta, Canada",
+      "description": "Drumheller, Canada"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-112.8041, 51.4752],
+        "address": "Clay Ridge Loop",
+        "description": "Layered hill walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-112.8618, 51.4417],
+        "address": "Prairie Window",
+        "description": "Sunset viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-112.786, 51.4936],
+        "address": "Sage Flats",
+        "description": "Morning short walk",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"],
+    "priceDiscount": 30
+  },
+  {
+    "_id": "65000000000000000000000e",
+    "name": "Highland Glen Explorer",
+    "duration": 5,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 5,
+    "price": 1045,
+    "summary": "A moody Highland route with grassy glens, loch edges, old stone paths, and rolling mountain weather.",
+    "description": "Highland Glen Explorer follows a mix of old paths, open glens, and lakeside tracks. The walking is moderate, but weather can change quickly, so layers and flexible routing matter. Guides emphasize local landscape history, navigation, and quiet viewpoints rather than crowded stops. Expect peat colors, wind, soft rain, and dramatic skies.",
+    "imageCover": "tour-14-cover.png",
+    "images": ["tour-14-1.png", "tour-14-2.png", "tour-14-3.png"],
+    "startDates": [
+      "2026-05-04T12:00:00Z",
+      "2026-06-04T12:00:00Z",
+      "2026-08-04T12:00:00Z",
+      "2027-05-04T12:00:00Z",
+      "2027-06-04T12:00:00Z",
+      "2027-08-04T12:00:00Z"
+    ],
+    "slug": "highland-glen-explorer",
+    "createdAt": "2025-03-16T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 8, 9],
+      "daysOfMonth": [4, 18]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-4.2247, 56.8169],
+      "address": "Glen trail area, Scottish Highlands, UK",
+      "description": "Inverness, United Kingdom"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-4.2601, 56.8402],
+        "address": "Heather Glen",
+        "description": "Open valley walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-4.1819, 56.8648],
+        "address": "Lochside Track",
+        "description": "Waterfront route",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-4.3088, 56.8054],
+        "address": "Stone Pass",
+        "description": "Old trail viewpoint",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"]
+  },
+  {
+    "_id": "65000000000000000000000f",
+    "name": "Dolomite Meadow Traverse",
+    "duration": 6,
+    "maxGroupSize": 10,
+    "difficulty": "medium",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 1385,
+    "summary": "A high-meadow traverse below pale rock towers, with alpine huts, flower fields, and sunrise ridge walks.",
+    "description": "Dolomite Meadow Traverse balances strong alpine scenery with comfortable hut-to-hut pacing. Days move through meadows, larch forest, and limestone viewpoints, while evenings stay warm and social in mountain lodges. The trail includes elevation gain but avoids technical climbing. It is especially beautiful in early summer and early autumn.",
+    "imageCover": "tour-15-cover.png",
+    "images": ["tour-15-1.png", "tour-15-2.png", "tour-15-3.png"],
+    "startDates": [
+      "2026-06-07T12:00:00Z",
+      "2026-07-07T12:00:00Z",
+      "2026-09-07T12:00:00Z",
+      "2027-06-07T12:00:00Z",
+      "2027-07-07T12:00:00Z",
+      "2027-09-07T12:00:00Z"
+    ],
+    "slug": "dolomite-meadow-traverse",
+    "createdAt": "2025-04-17T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [6, 7, 9],
+      "daysOfMonth": [7, 21]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [11.7615, 46.6168],
+      "address": "Alpine village trail area, Northern Italy",
+      "description": "Cortina d'Ampezzo, Italy"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [11.8045, 46.6352],
+        "address": "Larch Meadow",
+        "description": "First high meadow",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [11.8467, 46.657],
+        "address": "Pale Tower View",
+        "description": "Limestone viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [11.7289, 46.5928],
+        "address": "Ridge Hut",
+        "description": "Alpine hut overnight",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ],
+    "priceDiscount": 130
+  },
+  {
+    "_id": "650000000000000000000010",
+    "name": "Norwegian Fjord Horizon",
+    "duration": 5,
+    "maxGroupSize": 10,
+    "difficulty": "medium",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 5,
+    "price": 1295,
+    "summary": "A fjord-side hiking and boat-linked route with steep green slopes, quiet water, and high horizon viewpoints.",
+    "description": "Norwegian Fjord Horizon combines short transfers with focused hiking days. The scenery is vertical and clean: still water below, green ridges above, and small settlements tucked into the shoreline. Routes are adjusted around rain and trail conditions, and the emphasis is on viewpoint timing rather than rushing distance. It is a polished introduction to fjord country.",
+    "imageCover": "tour-16-cover.png",
+    "images": ["tour-16-1.png", "tour-16-2.png", "tour-16-3.png"],
+    "startDates": [
+      "2026-06-05T12:00:00Z",
+      "2026-07-05T12:00:00Z",
+      "2026-08-05T12:00:00Z",
+      "2027-06-05T12:00:00Z",
+      "2027-07-05T12:00:00Z",
+      "2027-08-05T12:00:00Z"
+    ],
+    "slug": "norwegian-fjord-horizon",
+    "createdAt": "2025-05-18T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [6, 7, 8],
+      "daysOfMonth": [5, 19]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [6.9151, 60.8776],
+      "address": "Fjord village harbor, Western Norway",
+      "description": "Flåm, Norway"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [6.9615, 60.9014],
+        "address": "High Farm Path",
+        "description": "Steep historic path",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [6.8752, 60.844],
+        "address": "Mirror Fjord Shore",
+        "description": "Calm water viewpoint",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [6.9927, 60.8688],
+        "address": "North Ridge Lookout",
+        "description": "Final panorama ridge",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"]
+  },
+  {
+    "_id": "650000000000000000000011",
+    "name": "Alpine Glacier Path",
+    "duration": 7,
+    "maxGroupSize": 8,
+    "difficulty": "difficult",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 1725,
+    "summary": "A guided alpine route near glacier valleys, snowfields, rocky passes, and high huts with careful safety planning.",
+    "description": "Alpine Glacier Path is a demanding but non-technical alpine trekking program for strong hikers. The itinerary stays close to glacier landscapes without entering technical terrain unless conditions and guide judgment allow safe viewing sections. Long days, altitude, and variable weather make preparation important. The payoff is huge: clean air, white ridges, and high mountain silence.",
+    "imageCover": "tour-17-cover.png",
+    "images": ["tour-17-1.png", "tour-17-2.png", "tour-17-3.png"],
+    "startDates": [
+      "2026-07-06T12:00:00Z",
+      "2026-08-06T12:00:00Z",
+      "2026-09-06T12:00:00Z",
+      "2027-07-06T12:00:00Z",
+      "2027-08-06T12:00:00Z",
+      "2027-09-06T12:00:00Z"
+    ],
+    "slug": "alpine-glacier-path",
+    "createdAt": "2025-06-19T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [7, 8, 9],
+      "daysOfMonth": [6, 20]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [7.7491, 46.0207],
+      "address": "Alpine trail area, Valais, Switzerland",
+      "description": "Zermatt, Switzerland"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [7.7904, 46.0425],
+        "address": "Iceview Moraine",
+        "description": "Glacier-valley viewpoint",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [7.7222, 46.0581],
+        "address": "Stone Pass Hut",
+        "description": "High overnight hut",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [7.8117, 46.012],
+        "address": "Snowfield Balcony",
+        "description": "Upper snowfield overlook",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"],
+    "priceDiscount": 150
+  },
+  {
+    "_id": "650000000000000000000012",
+    "name": "Iceland Lava Coast",
+    "duration": 4,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 1190,
+    "summary": "A black-rock coastal route with lava fields, sea spray, hot-spring warmth, and wide volcanic horizons.",
+    "description": "Iceland Lava Coast is compact but memorable. The route moves across black lava textures, wind-shaped coast, and open viewpoints where the weather feels close and alive. Guides keep distances manageable and use vehicle transfers when conditions demand. It is a visually bold tour for travelers who like elemental landscapes and don’t mind wind.",
+    "imageCover": "tour-18-cover.png",
+    "images": ["tour-18-1.png", "tour-18-2.png", "tour-18-3.png"],
+    "startDates": [
+      "2026-05-03T12:00:00Z",
+      "2026-06-03T12:00:00Z",
+      "2026-08-03T12:00:00Z",
+      "2027-05-03T12:00:00Z",
+      "2027-06-03T12:00:00Z",
+      "2027-08-03T12:00:00Z"
+    ],
+    "slug": "iceland-lava-coast",
+    "createdAt": "2025-07-20T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 8, 9],
+      "daysOfMonth": [3, 17]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-22.6386, 63.8759],
+      "address": "Lava coast trail area, Southwest Iceland",
+      "description": "Vík, Iceland"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-22.689, 63.8526],
+        "address": "Black Cove",
+        "description": "Basalt coast walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-22.6022, 63.9024],
+        "address": "Lava Plain",
+        "description": "Volcanic field crossing",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-22.5596, 63.8712],
+        "address": "Warm Spring Stop",
+        "description": "Low-key geothermal break",
+        "day": 3
+      }
+    ],
+    "guides": [
+      "640000000000000000000004",
+      "640000000000000000000009",
+      "64000000000000000000000a"
+    ]
+  },
+  {
+    "_id": "650000000000000000000013",
+    "name": "Basque Coastal Ramble",
+    "duration": 4,
+    "maxGroupSize": 14,
+    "difficulty": "easy",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 5,
+    "price": 875,
+    "summary": "A relaxed Atlantic coast walk with green cliffs, fishing villages, beach paths, and generous local food stops.",
+    "description": "Basque Coastal Ramble is social, scenic, and not too intense. The days combine cliff paths, beach sections, village pauses, and optional short climbs to viewpoints. It is a strong fit for travelers who want nature with comfort and culture woven in. Guides keep the experience balanced: walking in the morning, coast and food in the afternoon.",
+    "imageCover": "tour-19-cover.png",
+    "images": ["tour-19-1.png", "tour-19-2.png", "tour-19-3.png"],
+    "startDates": [
+      "2026-04-09T12:00:00Z",
+      "2026-05-09T12:00:00Z",
+      "2026-06-09T12:00:00Z",
+      "2027-04-09T12:00:00Z",
+      "2027-05-09T12:00:00Z",
+      "2027-06-09T12:00:00Z"
+    ],
+    "slug": "basque-coastal-ramble",
+    "createdAt": "2025-08-21T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [4, 5, 6, 9, 10],
+      "daysOfMonth": [9, 23]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [-2.1593, 43.2981],
+      "address": "Coastal path area, Basque Country, Spain",
+      "description": "San Sebastián, Spain"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [-2.2056, 43.3128],
+        "address": "Green Cliff Path",
+        "description": "Morning coast route",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [-2.1211, 43.2765],
+        "address": "Harbor Village",
+        "description": "Food and rest stop",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [-2.258, 43.3267],
+        "address": "Atlantic Balcony",
+        "description": "Final sea viewpoint",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000002", "640000000000000000000005"],
+    "priceDiscount": 70
+  },
+  {
+    "_id": "650000000000000000000014",
+    "name": "Slovenian Emerald Valley",
+    "duration": 5,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 5,
+    "price": 995,
+    "summary": "A green valley journey with clear rivers, forest trails, limestone gorges, and peaceful mountain villages.",
+    "description": "Slovenian Emerald Valley is fresh, green, and quietly adventurous. The route follows river paths, small bridges, forested gorge edges, and village-to-village sections. It is moderate rather than extreme, with enough variety to feel full without becoming exhausting. Travelers who enjoy clear water, soft mountain views, and less-crowded European routes will love this one.",
+    "imageCover": "tour-20-cover.png",
+    "images": ["tour-20-1.png", "tour-20-2.png", "tour-20-3.png"],
+    "startDates": [
+      "2026-05-05T12:00:00Z",
+      "2026-06-05T12:00:00Z",
+      "2026-07-05T12:00:00Z",
+      "2027-05-05T12:00:00Z",
+      "2027-06-05T12:00:00Z",
+      "2027-07-05T12:00:00Z"
+    ],
+    "slug": "slovenian-emerald-valley",
+    "createdAt": "2025-09-22T10:00:00Z",
+    "secretTour": false,
+    "schedule": {
+      "months": [5, 6, 7, 9],
+      "daysOfMonth": [5, 19]
+    },
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [13.5526, 46.3375],
+      "address": "Mountain valley trail area, Slovenia",
+      "description": "Bovec, Slovenia"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [13.5884, 46.3523],
+        "address": "Emerald River Bend",
+        "description": "Clear river walk",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [13.5109, 46.3155],
+        "address": "Limestone Gorge",
+        "description": "Forest gorge section",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [13.6291, 46.3666],
+        "address": "Village Ridge",
+        "description": "Final village viewpoint",
+        "day": 3
+      }
+    ],
+    "guides": ["640000000000000000000003", "640000000000000000000007"]
+  }
+]

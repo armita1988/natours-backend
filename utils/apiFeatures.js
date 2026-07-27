@@ -6,7 +6,14 @@ class ApiFeatures {
 
   filter() {
     let filterObj = { ...this.queryStr };
-    const excludedFields = ['fields', 'sort', 'page', 'limit'];
+    const excludedFields = [
+      'fields',
+      'sort',
+      'page',
+      'limit',
+      'search',
+      'destination',
+    ];
     excludedFields.forEach((val) => {
       delete filterObj[val];
     });
@@ -30,7 +37,7 @@ class ApiFeatures {
   }
 
   paginate() {
-    const limit = this.queryStr.limit * 1 || 10;
+    const limit = this.queryStr.limit * 1 || 20;
     const page = this.queryStr.page * 1 || 1;
     this.query = this.query.skip((page - 1) * limit).limit(limit);
     return this;
@@ -42,6 +49,34 @@ class ApiFeatures {
       this.query = this.query.sort(sortFields);
     } else {
       this.query = this.query.sort('-createdAt');
+    }
+    return this;
+  }
+
+  search() {
+    if (this.queryStr.search) {
+      this.query = this.query.find({
+        $or: [
+          { name: { $regex: this.queryStr.search, $options: 'i' } },
+          { summary: { $regex: this.queryStr.search, $options: 'i' } },
+          { description: { $regex: this.queryStr.search, $options: 'i' } },
+          {
+            'startLocation.description': {
+              $regex: this.queryStr.search,
+              $options: 'i',
+            },
+          },
+          { difficulty: { $regex: this.queryStr.search, $options: 'i' } },
+        ],
+      });
+    }
+    if (this.queryStr.destination) {
+      this.query = this.query.find({
+        'startLocation.description': {
+          $regex: this.queryStr.destination,
+          $options: 'i',
+        },
+      });
     }
     return this;
   }
