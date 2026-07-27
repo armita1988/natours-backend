@@ -1,4 +1,4 @@
-# Natours Backend
+# Trailora Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 ![Express](https://img.shields.io/badge/Express.js-Backend-black)
@@ -219,7 +219,7 @@ Public routes such as **login, signup, and fetching tours** do not require authe
 ## Project Structure
 
 ```
-natours-backend
+Trailora-backend
 │
 ├── controllers
 ├── models
@@ -232,26 +232,18 @@ natours-backend
 
 ---
 
-## Postman Collection
-
-All endpoints can be tested using the included Postman collection:
-
-`postman/Natours.postman_collection.json`
-
----
-
 ## Installation
 
 Clone repository
 
 ```bash
-git clone https://github.com/armita1988/natours-backend.git
+git clone https://github.com/armita1988/Trailora-backend.git
 ```
 
 Enter project folder
 
 ```bash
-cd natours-backend
+cd Trailora-backend
 ```
 
 Install dependencies

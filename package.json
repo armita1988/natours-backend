@@ -1,7 +1,7 @@
 {
-  "name": "natours-backend",
+  "name": "trailora-backend",
   "version": "1.0.0",
-  "description": "backend for Natours project (MERN)",
+  "description": "backend for Trailora project (MERN)",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -L server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/armita1988/natours.git"
+    "url": "git+https://github.com/armita1988/trailora-backend.git"
   },
   "author": "Armita Haji Mani",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/armita1988/natours/issues"
+    "url": "https://github.com/armita1988/trailora-backend/issues"
   },
-  "homepage": "https://github.com/armita1988/natours#readme",
+  "homepage": "https://github.com/armita1988/trailora-backend#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",

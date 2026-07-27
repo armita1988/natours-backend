@@ -143,4 +143,5 @@ vite.config.ts.timestamp-*
 .vscode/
 public/css/
 public/*.html
-postman/index.json
+#Postman
+postman
