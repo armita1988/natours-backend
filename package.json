@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -L server.js",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "node server.js",
     "debug": "ndb server.js"
   },
   "repository": {

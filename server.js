@@ -9,7 +9,12 @@ process.on('uncaughtException', (err) => {
 });
 
 //load config
-dotenv.config({ path: path.join(`${__dirname}`, 'config.env'), quiet: true });
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({
+    path: path.join(`${__dirname}`, 'config.env'),
+    quiet: true,
+  });
+}
 //load app
 const app = require('./app');
 

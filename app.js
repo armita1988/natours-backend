@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const AppError = require('./utils/appError');
 const tourRouter = require('./routes/tourRoutes');
@@ -22,7 +23,7 @@ const app = express();
 // Adds headers: Access-Control-Allow-Origin: *
 app.use(
   cors({
-    origin: true,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }),
 );
@@ -73,17 +74,17 @@ app.use(express.json({ limit: '100kb' }));
 // );
 
 // Serving static files
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('query parser', 'extended');
 
 //parse cookies
 app.use(cookieParser());
 //routes
-app.use('/app/v1/tours', tourRouter);
-app.use('/app/v1/users', userRouter);
-app.use('/app/v1/reviews', reviewRouter);
-app.use('/app/v1/bookings', bookingRouter);
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/reviews', reviewRouter);
+app.use('/api/v1/bookings', bookingRouter);
 
 app.get('/health', (req, res, next) => {
   res.status(200).json({

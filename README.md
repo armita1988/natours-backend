@@ -39,13 +39,13 @@ This project demonstrates backend architecture, authentication, and scalable API
 
 | Method | Endpoint             | Description       | Auth Required |
 | ------ | -------------------- | ----------------- | ------------- |
-| GET    | /app/v1/tours        | Get all tours     | No            |
-| GET    | /app/v1/tours/:id    | Get specific tour | No            |
-| POST   | /app/v1/tours        | Create tour       | Yes           |
-| PATCH  | /app/v1/tours/:id    | Update tour       | Yes           |
-| DELETE | /app/v1/tours/:id    | Delete tour       | Yes           |
-| POST   | /app/v1/users/signup | Register user     | No            |
-| POST   | /app/v1/users/login  | Login user        | No            |
+| GET    | /api/v1/tours        | Get all tours     | No            |
+| GET    | /api/v1/tours/:id    | Get specific tour | No            |
+| POST   | /api/v1/tours        | Create tour       | Yes           |
+| PATCH  | /api/v1/tours/:id    | Update tour       | Yes           |
+| DELETE | /api/v1/tours/:id    | Delete tour       | Yes           |
+| POST   | /api/v1/users/signup | Register user     | No            |
+| POST   | /api/v1/users/login  | Login user        | No            |
 
 ---
 
@@ -61,12 +61,12 @@ Requests can be tested using **curl**, Postman, or any API client.
 
 **Endpoint**
 
-GET http://localhost:3000/app/v1/tours
+GET http://localhost:3000/api/v1/tours
 
 **Example**
 
 ```bash
-curl http://localhost:3000/app/v1/tours
+curl http://localhost:3000/api/v1/tours
 ```
 
 ---
@@ -75,12 +75,12 @@ curl http://localhost:3000/app/v1/tours
 
 **Endpoint**
 
-GET http://localhost:3000/app/v1/tours/:tourId
+GET http://localhost:3000/api/v1/tours/:tourId
 
 **Example**
 
 ```bash
-curl http://localhost:3000/app/v1/tours/5c88fa8cf4afda39709c295d
+curl http://localhost:3000/api/v1/tours/5c88fa8cf4afda39709c295d
 ```
 
 ---
@@ -89,7 +89,7 @@ curl http://localhost:3000/app/v1/tours/5c88fa8cf4afda39709c295d
 
 **Endpoint**
 
-POST http://localhost:3000/app/v1/users/login
+POST http://localhost:3000/api/v1/users/login
 
 **Request Body**
 
@@ -103,7 +103,7 @@ POST http://localhost:3000/app/v1/users/login
 **Example**
 
 ```bash
-curl -X POST http://localhost:3000/app/v1/users/login -H "Content-Type: application/json" -d '{"email":"sophie@example.com","password":"test1234"}'
+curl -X POST http://localhost:3000/api/v1/users/login -H "Content-Type: application/json" -d '{"email":"sophie@example.com","password":"test1234"}'
 ```
 
 **Sample Response**
@@ -121,7 +121,7 @@ curl -X POST http://localhost:3000/app/v1/users/login -H "Content-Type: applicat
 
 **Endpoint**
 
-POST http://localhost:3000/app/v1/tours
+POST http://localhost:3000/api/v1/tours
 
 **Request Body**
 
@@ -140,7 +140,7 @@ POST http://localhost:3000/app/v1/tours
 **Example**
 
 ```bash
-curl -X POST http://localhost:3000/app/v1/tours -H "Content-Type: application/json" -H "Authorization: Bearer YOUR_JWT_TOKEN" -d '{
+curl -X POST http://localhost:3000/api/v1/tours -H "Content-Type: application/json" -H "Authorization: Bearer YOUR_JWT_TOKEN" -d '{
 "name":"The Sea Explorer 2",
 "duration":125,
 "maxGroupSize":5,

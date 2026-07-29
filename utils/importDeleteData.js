@@ -3,7 +3,13 @@ const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: path.join(__dirname, '/../config.env'), quiet: true });
+dotenv.config({
+  path:
+    process.env.NODE_ENV === 'production'
+      ? path.join(__dirname, '/../config.prod.env')
+      : path.join(__dirname, '/../config.env'),
+  quiet: true,
+});
 
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
