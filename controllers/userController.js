@@ -4,7 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const ApiFeatures = require('../utils/apiFeatures');
-const uploadPhotoToS3 = require('../utils/s3Uploader');
+const uploadPhotoToS3 = require('../utils/s3');
 
 const upload = multer({
   storage: multer.memoryStorage(),
