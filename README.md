@@ -133,7 +133,7 @@ POST http://localhost:3000/api/v1/tours
   "difficulty": "easy",
   "price": 4736,
   "summary": "create a new test tour",
-  "imageCover": "tour-1-cover.jpg"
+  "imageCover": "tour-1-cover.png"
 }
 ```
 
@@ -147,7 +147,7 @@ curl -X POST http://localhost:3000/api/v1/tours -H "Content-Type: application/js
 "difficulty":"easy",
 "price":4736,
 "summary":"create a new test tour",
-"imageCover":"tour-1-cover.jpg"
+"imageCover":"tour-1-cover.png"
 }'
 ```
 

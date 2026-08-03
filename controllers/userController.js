@@ -1,20 +1,10 @@
 const multer = require('multer');
 const sharp = require('sharp');
-const path = require('path');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const ApiFeatures = require('../utils/apiFeatures');
-
-// const multerStorage = multer.memoryStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public/img/users');
-//   },
-//   filename: (req, file, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     cb(null, `user-${req.user._id}-${Date.now()}.${ext}`);
-//   },
-// });
+const uploadPhotoToS3 = require('../utils/s3Uploader');
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -40,14 +30,21 @@ module.exports.uploadUserPhoto = upload.single('photo');
 module.exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
-  req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
-  await sharp(req.file.buffer)
+  req.file.filename = `user-${req.user._id}-${Date.now()}.jpg`;
+  const resizedImageBuffer = await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
-    .toFile(
-      path.join(__dirname, '..', 'public', 'img', 'users', req.file.filename),
-    );
+    .toBuffer();
+  // .toFile(
+  //   path.join(__dirname, '..', 'public', 'img', 'users', req.file.filename),
+  // );
+
+  await uploadPhotoToS3(
+    `img/users/${req.file.filename}`,
+    resizedImageBuffer,
+    'image/jpeg',
+  );
   next();
 });
 
@@ -60,7 +57,8 @@ module.exports.updateMe = catchAsync(async (req, res, next) => {
   }
   //filter out unexpected fields
   let filteredBody = {};
-  filteredBody = filterObject(req.body, 'email', 'name', 'photo');
+  // filteredBody = filterObject(req.body, 'email', 'name', 'photo');
+  filteredBody = filterObject(req.body, 'email', 'name');
   if (req.file) filteredBody.photo = req.file.filename;
 
   //update user

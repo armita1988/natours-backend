@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    image: armita1988/trailora-backend:v1.0.0
+    image: armita1988/trailora-backend:v1.1.0
     container_name: trailora-prod-api
     restart: unless-stopped
 
@@ -23,5 +23,3 @@ services:
 
     ports:
       - '127.0.0.1:3000:7000'
-    volumes:
-      - ./uploads/users:/app/public/img/users
