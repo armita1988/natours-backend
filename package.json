@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -L server.js",
     "start": "node server.js",
-    "debug": "ndb server.js"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
