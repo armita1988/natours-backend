@@ -19,6 +19,98 @@ function formatDate(
   return new Date(date).toLocaleDateString(locales, options);
 }
 
+async function createBookingFromCheckout(session) {
+  const { tourId, userId, bookingId, request, phone, numberOfTravelers } =
+    session.metadata;
+  let currentBooking = null;
+  let currentTour = null;
+  let currentUser = null;
+
+  if (bookingId) {
+    currentBooking = await BookingModel.findById(bookingId);
+    if (!currentBooking) {
+      throw new AppError(
+        `Booking not found for Stripe session: ${session.id}`,
+        404,
+      );
+    }
+  } else {
+    currentTour = await TourModel.findById(tourId);
+    if (!currentTour) {
+      throw new AppError(
+        `Tour not found for Stripe session: ${session.id}`,
+        404,
+      );
+    }
+    currentUser = await UserModel.findById(userId);
+    if (!currentUser) {
+      throw new AppError(
+        `User not found for Stripe session: ${session.id}`,
+        404,
+      );
+    }
+  }
+
+  const existingBooking = await BookingModel.findOne({
+    stripeSessionId: session.id,
+  });
+
+  if (existingBooking) return;
+
+  const paymentIntent = await stripe.paymentIntents.retrieve(
+    session.payment_intent,
+    {
+      expand: ['latest_charge'],
+    },
+  );
+
+  const charge = paymentIntent.latest_charge;
+  const card = charge?.payment_method_details?.card;
+
+  if (!currentBooking) {
+    const startDate = formatDate(currentTour.nextStartDate);
+    let endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + currentTour.duration - 1);
+    endDate = formatDate(endDate);
+
+    await BookingModel.create({
+      stripeSessionId: session.id,
+      stripePaymentIntentId: session.payment_intent,
+      stripeChargeId: charge?.id,
+      invoiceNumber: `INV-${new Date().getFullYear()}-${session.id.slice(-6).toUpperCase()}`,
+      tour: tourId,
+      user: userId,
+      price: paymentIntent.amount_received / 100,
+      currency: session.currency || 'cad',
+      paymentMethodBrand: card?.brand,
+      paymentMethodLast4: card?.last4,
+      customerName: currentUser.name,
+      customerEmail: session.customer_email || currentUser.email,
+      tourName: currentTour.name,
+      imageCover: currentTour.imageCover,
+      paymentStatus: session.payment_status,
+      bookingStatus: 'confirmed',
+      request,
+      phone,
+      numberOfTravelers,
+      startDate,
+      endDate,
+    });
+  } else {
+    currentBooking.stripeSessionId = session.id;
+    currentBooking.stripePaymentIntentId = session.payment_intent;
+    currentBooking.stripeChargeId = charge?.id;
+    currentBooking.invoiceNumber = `INV-${new Date().getFullYear()}-${session.id.slice(-6).toUpperCase()}`;
+    currentBooking.currency = session.currency || 'cad';
+    currentBooking.paymentMethodBrand = card?.brand;
+    currentBooking.paymentMethodLast4 = card?.last4;
+    currentBooking.paymentStatus = session.payment_status;
+    currentBooking.bookingStatus = 'confirmed';
+    await currentBooking.save();
+  }
+  //console.log('saved booking ....');
+}
+
 // Stripe webhook
 module.exports.webhookCheckout = async (req, res, next) => {
   const signature = req.headers['stripe-signature'];
@@ -70,119 +162,33 @@ module.exports.webhookCheckout = async (req, res, next) => {
   });
 };
 
-const createBookingFromCheckout = async (session) => {
-  const { tourId, userId, bookingId, request, phone, numberOfTravelers } =
-    session.metadata;
-  let currentBooking = null;
-  let currentTour = null;
-  let curentUser = null;
-
-  if (bookingId) {
-    currentBooking = await BookingModel.findById(bookingId);
-    if (!currentBooking) {
-      throw new AppError(
-        `Booking not found for Stripe session: ${session.id}`,
-        404,
-      );
-    }
-  } else {
-    currentTour = await TourModel.findById(tourId);
-    if (!currentTour) {
-      throw new AppError(
-        `Tour not found for Stripe session: ${session.id}`,
-        404,
-      );
-    }
-    currentUser = await UserModel.findById(userId);
-    if (!currentUser) {
-      throw new AppError(
-        `User not found for Stripe session: ${session.id}`,
-        404,
-      );
-    }
-  }
-
-  const existingBooking = await BookingModel.findOne({
-    stripeSessionId: session.id,
-  });
-
-  if (existingBooking) return;
-
-  const paymentIntent = await stripe.paymentIntents.retrieve(
-    session.payment_intent,
-    {
-      expand: ['latest_charge'],
-    },
-  );
-
-  const charge = paymentIntent.latest_charge;
-  const card = charge?.payment_method_details?.card;
-
-  if (!currentBooking) {
-    let startDate = formatDate(currentTour.nextStartDate);
-    let endDate = new Date(startDate);
-    endDate.setDate(endDate.getDate() + currentTour.duration - 1);
-    endDate = formatDate(endDate);
-
-    const booking = await BookingModel.create({
-      stripeSessionId: session.id,
-      stripePaymentIntentId: session.payment_intent,
-      stripeChargeId: charge?.id,
-      invoiceNumber: `INV-${new Date().getFullYear()}-${session.id.slice(-6).toUpperCase()}`,
-      tour: tourId,
-      user: userId,
-      price: paymentIntent.amount_received / 100,
-      currency: session.currency || 'cad',
-      paymentMethodBrand: card?.brand,
-      paymentMethodLast4: card?.last4,
-      customerName: currentUser.name,
-      customerEmail: session.customer_email || user.email,
-      tourName: currentTour.name,
-      imageCover: currentTour.imageCover,
-      paymentStatus: session.payment_status,
-      bookingStatus: 'confirmed',
-      request,
-      phone,
-      numberOfTravelers,
-      startDate,
-      endDate,
-    });
-  } else {
-    currentBooking.stripeSessionId = session.id;
-    currentBooking.stripePaymentIntentId = session.payment_intent;
-    currentBooking.stripeChargeId = charge?.id;
-    currentBooking.invoiceNumber = `INV-${new Date().getFullYear()}-${session.id.slice(-6).toUpperCase()}`;
-    currentBooking.currency = session.currency || 'cad';
-    currentBooking.paymentMethodBrand = card?.brand;
-    currentBooking.paymentMethodLast4 = card?.last4;
-    currentBooking.paymentStatus = session.payment_status;
-    currentBooking.bookingStatus = 'confirmed';
-    const updatedBooking = await currentBooking.save();
-  }
-  console.log('saved booking ....');
-};
 module.exports.createCheckoutSession = catchAsync(async (req, res, next) => {
   let booking = null;
-  let metadata = {};
+  const metadata = {};
+
   if (req.body.request && req.body.request.trim() !== '') {
     metadata.request = req.body.request.trim();
   }
+
   if (req.body.phone && req.body.phone.trim() !== '') {
     metadata.phone = req.body.phone.trim();
   }
+
   let quantity = req.body.numberOfTravelers * 1 || 1;
   metadata.numberOfTravelers = quantity;
 
-  if (req.body.bookingId !== null) {
-    booking = await BookingModel.findById(req.body.bookingId);
+  const { bookingId } = req.body;
+
+  if (bookingId != null) {
+    booking = await BookingModel.findById(bookingId);
   }
 
-  if (!booking && req.body.bookingId !== null) {
-    return next(
-      new AppError(`No booking found with ID :${req.body.bookingId}`, 404),
-    );
+  if (!booking && bookingId != null) {
+    return next(new AppError(`No booking found with ID: ${bookingId}`, 404));
   }
+
   const tour = await TourModel.findById(req.params.tourId);
+
   if (!tour) {
     return next(
       new AppError(`No tour found with ID :${req.params.tourId}`, 404),
@@ -214,9 +220,8 @@ module.exports.createCheckoutSession = catchAsync(async (req, res, next) => {
           product_data: {
             name: tour.name,
             description: tour.summary,
-            // images: [`${process.env.BACKEND_URL}/img/tours/${tour.imageCover}`],
             images: [
-              'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee',
+              `${process.env.FRONTEND_URL}/img/tours/${tour.imageCover}`,
             ],
           },
         },
@@ -309,8 +314,6 @@ module.exports.deleteBooking = catchAsync(async (req, res, next) => {
 });
 
 module.exports.getAllBookings = catchAsync(async (req, res, next) => {
-  const apiFeatures = new ApiFeatures(BookingModel.find(), req.query);
-
   const features = new ApiFeatures(BookingModel.find(), req.query)
     .filter()
     .sort()

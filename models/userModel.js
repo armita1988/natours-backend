@@ -111,7 +111,7 @@ userSchema.methods.createPasswordResetToken = function () {
 
 userSchema.methods.isPasswordChangedAfterJwtIssue = function (jwtIat) {
   if (this.passwordChangedAt) {
-    // console.log(jwtIat * 1000, this.passwordChangedAt.getTime());
+    // //console.log(jwtIat * 1000, this.passwordChangedAt.getTime());
     return this.passwordChangedAt.getTime() > jwtIat * 1000;
   }
   return false;

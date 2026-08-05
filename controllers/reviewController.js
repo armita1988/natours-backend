@@ -4,7 +4,7 @@ const ApiFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
 
 module.exports.createReview = catchAsync(async (req, res, next) => {
-  // console.log(req.params);
+  // //console.log(req.params);
   if (!req.body.tour) {
     req.body.tour = req.params.tourId;
   }
@@ -51,7 +51,7 @@ module.exports.deleteReview = catchAsync(async (req, res, next) => {
 });
 
 module.exports.getAllReviews = catchAsync(async (req, res, next) => {
-  // console.log(req.params);
+  // //console.log(req.params);
   let filter = {};
   if (req.params.tourId) {
     filter = { tour: req.params.tourId };

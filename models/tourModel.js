@@ -138,8 +138,8 @@ tourSchema.pre('save', function () {
 });
 
 // tourSchema.post('save', function (doc) {
-//   console.log('document saved...');
-//   console.log(doc);
+//   //console.log('document saved...');
+//   //console.log(doc);
 // });
 
 tourSchema.pre(/^find/, function () {
@@ -152,7 +152,7 @@ tourSchema.pre(/^find/, function () {
 
 tourSchema.pre('aggregate', function () {
   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
-  // console.log(this.pipeline());
+  // //console.log(this.pipeline());
 });
 
 // tourSchema.virtual('durationWeeks').get(function () {
@@ -170,7 +170,7 @@ tourSchema.virtual('nextStartDate').get(function () {
     return null;
   }
 
-  for (let year = currentYear; year <= currentYear + 1; year++) {
+  for (let year = currentYear; year <= currentYear + 1; year += 1) {
     months.forEach((month) => {
       daysOfMonth.forEach((day) => {
         const date = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));

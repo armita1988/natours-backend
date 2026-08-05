@@ -11,8 +11,8 @@ const UploadPhotoToS3 = async function (key, buffer, contentType) {
     Key: key,
     ContentType: contentType,
   });
-  const res = await s3.send(command);
-  console.log(res);
+  await s3.send(command);
+  //console.log(res);
 };
 
 module.exports = UploadPhotoToS3;

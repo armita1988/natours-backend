@@ -69,7 +69,7 @@ module.exports.isAuthenticated = catchAsync(async (req, res, next) => {
 
   //validate jwt token
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  // console.log(decoded);
+  // //console.log(decoded);
 
   //find corresponding user
   const currentUser = await User.findById(decoded.id);
@@ -147,9 +147,9 @@ module.exports.login = catchAsync(async (req, res, next) => {
 
 module.exports.forgotPassword = catchAsync(async (req, res, next) => {
   const { email } = req.body;
-  console.log('in forgot controller:', {
-    email,
-  });
+  // console.log('in forgot controller:', {
+  //   email,
+  // });
   //check email exists in DB
   const user = await User.findOne({
     email,

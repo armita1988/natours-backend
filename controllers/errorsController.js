@@ -5,7 +5,7 @@ const HandleCastErrorDB = (err) =>
 
 const HandleValidationErrorDB = (err) => {
   const messages = Object.entries(err?.errors)
-    .map(([key, value]) => value.message)
+    .map(([, value]) => value.message)
     .join(', ');
 
   return new AppError(messages, 400);
@@ -18,13 +18,11 @@ const HandleDuplicateKeyErrorDB = (err) => {
   );
 };
 
-const HandleJWTError = (err) => {
-  return new AppError(` Ivalid JWT token. Please log in again!`, 401);
-};
+const HandleJWTError = () =>
+  new AppError(`Invalid JWT token. Please log in again!`, 401);
 
-const HandleJWTExpired = (err) => {
-  return new AppError(`Your token has expired. Please log in again!`, 401);
-};
+const HandleJWTExpired = () =>
+  new AppError(`Your token has expired. Please log in again!`, 401);
 
 const sendErrorDev = function (err, res) {
   res.status(err.statusCode).json({
@@ -49,9 +47,9 @@ const sendErrorProd = function (err, res) {
 };
 
 const globalErrorHandler = (err, req, res, next) => {
-  console.log('REAL ERROR:', err);
-  console.log('ERROR MESSAGE:', err.message);
-  console.log('ERROR STACK:', err.stack);
+  //console.log('REAL ERROR:', err);
+  //console.log('ERROR MESSAGE:', err.message);
+  //console.log('ERROR STACK:', err.stack);
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 

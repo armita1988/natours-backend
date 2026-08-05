@@ -16,7 +16,10 @@ const User = require('../../models/userModel');
 const Review = require('../../models/reviewModel');
 const Booking = require('../../models/bookingModel');
 
-const DB = process.env.DATABASE?.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+const DB = process.env.DATABASE?.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD,
+);
 
 if (!DB) {
   console.error('DATABASE is missing. Check your .env file.');
@@ -26,7 +29,9 @@ if (!DB) {
 mongoose.connect(DB).then(() => console.log('DB connection successful'));
 
 const readJSON = (fileName) =>
-  JSON.parse(fs.readFileSync(path.join(__dirname, '../data', fileName), 'utf-8'));
+  JSON.parse(
+    fs.readFileSync(path.join(__dirname, '../data', fileName), 'utf-8'),
+  );
 
 const users = readJSON('users.json');
 const tours = readJSON('tours.json');

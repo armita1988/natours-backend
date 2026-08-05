@@ -69,7 +69,7 @@ module.exports.updateTour = catchAsync(async (req, res, next) => {
 });
 
 module.exports.createTour = catchAsync(async (req, res, next) => {
-  console.log('File:', req.files);
+  //console.log('File:', req.files);
   const tour = await Tour.create(req.body);
   res.status(201).json({
     status: 'success',
