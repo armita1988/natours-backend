@@ -1,0 +1,27 @@
+name: Trailora Backend CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trailora-backend-production
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify backend workflow
+    runs-on: ubuntu-latst
+
+    steps:
+      - name: Ckeckout repository
+        uses: actions/ckeckout@v4
+
+      - name: Confirm workflow execution
+        run: echo "Trailora backend workflow is running successfully."
