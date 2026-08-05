@@ -17,7 +17,7 @@ concurrency:
 jobs:
   verify:
     name: Verify backend workflow
-    runs-on: ubuntu-latst
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Ckeckout repository
