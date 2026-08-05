@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Ckeckout repository
-        uses: actions/ckeckout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Confirm workflow execution
         run: echo "Trailora backend workflow is running successfully."
