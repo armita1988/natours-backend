@@ -75,19 +75,42 @@ jobs:
     name: Deploy backend to EC2 server
     runs-on: ubuntu-22.04
     needs: build
+
     steps:
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.2.5
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Copy Docker Compose file to EC2
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ vars.EC2_HOST }}
           username: ${{ vars.EC2_USER }}
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          source: compose.prod.yaml
+          target: ${{ vars.EC2_APP_DIR }}
 
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.2.5
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        with:
+          host: ${{ vars.EC2_HOST }}
+          username: ${{ vars.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          envs: IMAGE_TAG
           script: |
             set -e
-            echo "Pulling the latest Docker image..."
-            cd ${{ vars.EC2_APP_DIR }}
+            echo "Deploying backend image with tag: ${IMAGE_TAG}"
+            cd "${{ vars.EC2_APP_DIR }}"
+            echo "Docker Compose will pull this image:"
+            docker compose -f compose.prod.yaml config --images
             docker compose -f compose.prod.yaml pull api
-            docker compose -f compose.prod.yaml up -d --no-build api
+            docker compose -f compose.prod.yaml up \
+              -d \
+              --no-build \
+              --force-recreate \
+              --wait \
+              --wait-timeout 90 \
+              api
             docker compose -f compose.prod.yaml ps
             echo "Deployment to EC2 completed successfully."
