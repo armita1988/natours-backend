@@ -107,6 +107,7 @@ jobs:
             set -e
             echo "Deploying backend image with tag: ${IMAGE_TAG}"
             cd "${{ vars.EC2_APP_DIR }}"
+            trap 'echo "Error occurred while deploying backend image"; docker compose -f compose.prod.yaml logs --tail 100 api || true' ERR
             echo "Docker Compose will pull this image:"
             docker compose -f compose.prod.yaml config --images
             docker compose -f compose.prod.yaml pull api
